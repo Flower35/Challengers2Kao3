@@ -1,0 +1,10 @@
+#include <Challengers2Kao3_alpha/Challengers2Kao3_rc.h>
+
+ID_IKONA1 ICON "kao_laoding0000.ico"
+ID_BITMAPA1 BITMAP "banner_ktw+kc.bmp"
+
+ID_WAVE1 WAVE "kao_super.wav"
+ID_WAVE2 WAVE "kao_onie.wav"
+ID_WAVE3 WAVE "kao_problemy.wav"
+ID_WAVE4 WAVE "kao_zrobiewszystko.wav"
+ID_WAVE5 WAVE "kao_prosze.wav"

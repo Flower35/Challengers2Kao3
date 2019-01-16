@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Pliki źródłowe">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Pliki zasobów">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Pliki źródłowe\base">
+      <UniqueIdentifier>{d0cd3e7e-8bc6-4e5a-820c-986765bbb11e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\source\MaiAT3PlusDecoder\dekoder.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\MaiAT3PlusDecoder\MaiAT3PlusDecoder.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\MaiAT3PlusDecoder\MaiAT3PlusCoreDecoder.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\MaiAT3PlusDecoder\MaiAT3PlusCoreDecoder_DecFunc.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\MaiAT3PlusDecoder\MaiAT3PlusCoreDecoder_StaticData.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\MaiAT3PlusDecoder\MaiAT3PlusCoreDecoder_SubFunc.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\MaiAT3PlusDecoder\MaiAT3PlusFrameDecoder.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\MaiAT3PlusDecoder\base\Heap_Alloc0.cc">
+      <Filter>Pliki źródłowe\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\MaiAT3PlusDecoder\base\Mai_mem.cc">
+      <Filter>Pliki źródłowe\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\MaiAT3PlusDecoder\base\Mai_Sleep.cc">
+      <Filter>Pliki źródłowe\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\MaiAT3PlusDecoder\base\MaiBitReader.cc">
+      <Filter>Pliki źródłowe\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\MaiAT3PlusDecoder\base\MaiBufIO.cc">
+      <Filter>Pliki źródłowe\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\MaiAT3PlusDecoder\base\MaiCriticalSection.cc">
+      <Filter>Pliki źródłowe\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\MaiAT3PlusDecoder\base\MaiFile.cc">
+      <Filter>Pliki źródłowe\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\MaiAT3PlusDecoder\base\MaiQueue0.cc">
+      <Filter>Pliki źródłowe\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\MaiAT3PlusDecoder\base\MaiString.cc">
+      <Filter>Pliki źródłowe\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\MaiAT3PlusDecoder\base\MaiThread.cc">
+      <Filter>Pliki źródłowe\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\MaiAT3PlusDecoder\base\Unicode.cc">
+      <Filter>Pliki źródłowe\base</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\MaiAT3PlusDecoder\dekoder.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MaiAT3PlusDecoder\Mai_Base0.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MaiAT3PlusDecoder\MaiAT3PlusCoreDecoder.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MaiAT3PlusDecoder\MaiAT3PlusDecoder.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MaiAT3PlusDecoder\MaiAT3PlusFrameDecoder.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
