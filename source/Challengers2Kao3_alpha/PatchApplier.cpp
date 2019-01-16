@@ -270,6 +270,11 @@ int CPatchApplier::aplikujLatke(int id)
 				aplikujKod(0x00140BFB, 0x05, "\xEB\x10\x90\x90\x90");
 				aplikujKod(0x00140B71, 0x01, "\x98");
 
+				// "ePowerUp" ("small_heart")
+				aplikujKod(0x00140C5A, 0x05, "\x4E\x28\xEB\x15\x90");
+				aplikujKod(0x00140C91, 0x06, "\x4E\x24\xEB\xDE\x90\x90");
+				aplikujKod(0x00140C78, 0x01, "\x0A");
+
 				// "eTransform" [EnergyIconXForm]
 				aplikujKod(0x001E61A8, 0x05, "\xE4\x10\x00\x00\x20");
 				aplikujKod(0x001E61B0, 0x05, "\xE4\x14\x00\x00\x20");
