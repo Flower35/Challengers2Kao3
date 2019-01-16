@@ -417,6 +417,21 @@ bool CWindow::utworzOkienka()
 		SendMessage(okienko, WM_SETFONT, (WPARAM)Czcionka[0], 0);
 	}
 
+	////////////////////////////////////////////////////////////////
+	// * Napis o wersji
+
+	if (NULL == (okienko = CreateWindow(
+		WC_STATIC,
+		TEKST_LAST_UPDATE,
+		(WS_VISIBLE | WS_CHILD),
+		16, (OKNO_WYSOKOSC - 24), (OKNO_SZEROKOSC - 32), 24,
+		Okna[0], NULL, Instancja, NULL)))
+	{
+		return false;
+	};
+	SendMessage(okienko, WM_SETFONT, (WPARAM)Czcionka[1], 0);
+
+
 	return true;
 };
 
