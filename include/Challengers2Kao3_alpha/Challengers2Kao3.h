@@ -1,6 +1,8 @@
 #ifndef H_CHALLENGERS2KAO3_MAIN
 #define H_CHALLENGERS2KAO3_MAIN
 
+#define TEKST_LAST_UPDATE L"last update: 2019-01-17, 00:52"
+
 
 ////////////////////////////////////////////////////////////////
 // BIBLIOTEKI PROGRAMU
