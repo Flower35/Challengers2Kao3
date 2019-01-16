@@ -45,6 +45,10 @@ source/MaiAT3PlusDecoder/base/Unicode.cc
 #### `https://xiph.org/vorbis/`
 #### Build "libogg" and "libvorbis" dynamic linked libraries
 ```
+libraries/include/ogg/ogg.h
+libraries/include/ogg/os_types.h
+libraries/include/vorbis/codec.h
+libraries/include/vorbis/vorbisenc.h
 libraries/Win32/Debug/libogg.lib
 libraries/Win32/Debug/libvorbis.lib
 libraries/Win32/Release/libogg.lib
