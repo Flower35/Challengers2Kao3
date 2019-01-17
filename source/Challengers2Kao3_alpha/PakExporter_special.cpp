@@ -331,5 +331,5 @@ int CPakExporter::eksportujItemSubfunkcja(int rozmiar, int offset_koncowy, eUnic
 		}
 	}
 
-    return 0;
+	return 0;
 }

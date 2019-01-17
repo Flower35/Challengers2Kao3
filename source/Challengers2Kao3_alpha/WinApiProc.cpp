@@ -212,7 +212,7 @@ LRESULT CALLBACK CWindow::procedura_druga(HWND Okno, UINT Komunikat, WPARAM wPar
 	switch (Komunikat)
 	{
 		case WM_DESTROY:
-        case WM_CLOSE:
+		case WM_CLOSE:
 		{
 			return 1;
 		}

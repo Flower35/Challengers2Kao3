@@ -149,7 +149,7 @@ void CPatchApplier::aplikujCommonChanges()
 		// [loading] 2a: Pominiêcie domyœlnego rysowania
 		aplikujKod(0x000139DA, 0x05, "\xE9\xFD\x00\x00\x00"); // PUBLISHER
 		aplikujKod(0x00013CE5, 0x05, "\xE9\xFD\x00\x00\x00"); // BITMAP_2
-														  
+
 		// [loading] 2b: Wspólne zmiany przy wyœwietlaniu bitmap
 		aplikujKod(0x00013ADF, 0x01, "\x80"); // PUBLISHER
 		aplikujKod(0x00013DEA, 0x01, "\x80"); // BITMAP_2
