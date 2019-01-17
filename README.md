@@ -1,6 +1,7 @@
 # Challengers2Kao3
 Utility that helps porting "Kao Challengers" (PSP) levels to "Kao: Mystery of Volcano" (PC) engine.
 
+![Kao Challengers screenshot](https://i.imgur.com/P2HzDTT.png)
 
 ## List of required external files
 
