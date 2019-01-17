@@ -14,7 +14,7 @@ class eStringBase
 	private:
 
 		int refCount;
-        int length;
+		int length;
 		charT* text;
 
 	public:
@@ -23,7 +23,7 @@ class eStringBase
 		eStringBase<charT>(int count);
 
 		/* Usuwanie, modyfikowanie referencji */
-        ~eStringBase();
+		~eStringBase();
 		eStringBase<charT>* decRef();
 		void incRef();
 
@@ -37,17 +37,17 @@ class eStringPtrBase
 {
 	private:
 
-        eStringBase<charT>* pString;
+		eStringBase<charT>* pString;
 
 		/* Funkcje związane z konstrukcją */
 		void create(int count);
-        void create(const charT* str);
+		void create(const charT* str);
 		void copy(const eStringPtrBase<charT>& str);
 
 		/* Modyfikowanie referencji */
 		void decRef();
 		void incRef();
-        
+
 	public:
 
 		/* Funkcje związane z konstrukcją i dekonstrukcją */
@@ -55,8 +55,8 @@ class eStringPtrBase
 		eStringPtrBase<charT>(const charT* str);
 		eStringPtrBase<charT>(const eStringPtrBase<charT>& str);
 		~eStringPtrBase();
-        
-        /* Odwołania do wartości prywatnych */
+
+		/* Odwołania do wartości prywatnych */
 		charT* getText() const;
 		int getLength() const;
 
@@ -66,8 +66,8 @@ class eStringPtrBase
 		bool hasExtension(const charT* str) const;
 		eStringPtrBase<charT> getSubstring(int pos, int count = 0) const;
 		eStringPtrBase<charT> getFilename() const;
-		
-        /* Operatory przypisywania i kopiowania */
+
+		/* Operatory przypisywania i kopiowania */
 		eStringPtrBase<charT>& operator = (const charT* str);
 		eStringPtrBase<charT>& operator = (eStringPtrBase<charT>& str);
 		eStringPtrBase<charT> operator + (const charT* str);
