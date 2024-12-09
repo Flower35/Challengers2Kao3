@@ -110,7 +110,7 @@ void CPatchApplier::aplikujCommonChanges()
 
 		// "eBinoculars"
 		aplikujKod(0x00165704, 0x06, "\xE9\x12\x02\x00\x00\x90");
-	
+
 		// "ePadRot" ("menu/interfejs3/celownik.tga")
 		aplikujKod(0x00174015, 0x03, "\x72\x1C\xC7");
 
@@ -198,7 +198,7 @@ void CPatchApplier::aplikujCommonChanges()
 		aplikujKod(0x0000C64A, 0x06, "\x83\xEC\x04\xEB\x11\x90");
 		aplikujKod(0x0000CB91, 0x04, "\xE9\x1C\x01\x00");
 		aplikujKod(0x001FF953, 0x02, "\x67\x02");
-		aplikujKod(0x001EB4F8, 0x07, "\x8D\x44\xE4\x1C\xEB\x17\x90");
+		aplikujKod(0x001EB4F8, 0x08, "\x8D\x44\xE4\x1C\x89\x18\xEB\x15");
 		aplikujKod(0x001EBE82, 0x09, "\xE9\xA8\x00\x00\x00\x90\x90\x90\x90");
 		aplikujKod(0x001EBF2F, 0x07, "\xE9\x88\x00\x00\x00\x90\x90");
 		aplikujKod(0x001EC049, 0x07, "\xE9\x88\x00\x00\x00\x90\x90");
@@ -278,7 +278,7 @@ int CPatchApplier::aplikujLatke(int id)
 				// "eTransform" [EnergyIconXForm]
 				aplikujKod(0x001E61A8, 0x05, "\xE4\x10\x00\x00\x20");
 				aplikujKod(0x001E61B0, 0x05, "\xE4\x14\x00\x00\x20");
-				
+
 				// @@@ "eUI" MINI HACKS
 				aplikujKod(0x001E7389, 0x26, "\xE8\xB2\x1B\x00\x00\x8D\x4C\xE4\x44\xE8\xB9\x41\xE4\xFF\xB8\x1C\x00\x00\x00\x89\x46\x30\x89\x46\x34\x8B\x46\x54\x39\xE8\x0F\x8E\xA8\x00\x00\x00\xEB\x09");
 				aplikujKod(0x001E6DC9, 0x10, "\xC7\x38\x5E\x40\x75\x23\x39\xD8\x7E\x1F\x6A\x02\x89\xF1\xEB\x0B");
