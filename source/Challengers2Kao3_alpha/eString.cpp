@@ -1,4 +1,4 @@
-﻿#include <Challengers2Kao3_alpha/eString.h>
+ď»ż#include <Challengers2Kao3_alpha/eString.h>
 
 
 ////////////////////////////////////////////////////////////////
@@ -103,7 +103,7 @@ int _getCharArrayLength(const charT* str)
 template <typename charT>
 eStringPtrBase<charT> _addStrings(eStringPtrBase<charT>& str1, const charT* str2)
 {
-	/* Przygotuj nowy ciąg znaków */
+	/* Przygotuj nowy ciÄ…g znakĂłw */
 	int count1 = str1.getLength();
 	int count2 = _getCharArrayLength(str2);
 	int newCount = count1 + count2;
@@ -114,14 +114,14 @@ eStringPtrBase<charT> _addStrings(eStringPtrBase<charT>& str1, const charT* str2
 	std::memcpy(newText, str1.getText(), sizeof(charT) * count1);
 	std::memcpy(&(newText[count1]), str2, sizeof(charT) * count2);
 
-	/* Niepotrzebne `incRef`, bo wywoływany jest "copy constructor" */
+	/* Niepotrzebne `incRef`, bo wywoĹ‚ywany jest "copy constructor" */
 	return newStr;
 }
 
 template <typename charT>
 eStringPtrBase<charT> _addStrings(eStringPtrBase<charT>& str1, const eStringPtrBase<charT>& str2)
 {
-	/* Przygotuj nowy ciąg znaków */
+	/* Przygotuj nowy ciÄ…g znakĂłw */
 	int count1 = str1.getLength();
 	int count2 = str2.getLength();
 	int newCount = count1 + count2;
@@ -132,19 +132,19 @@ eStringPtrBase<charT> _addStrings(eStringPtrBase<charT>& str1, const eStringPtrB
 	std::memcpy(newText, str1.getText(), sizeof(charT) * count1);
 	std::memcpy(&(newText[count1]), str2.getText(), sizeof(charT) * count2);
 
-	/* Niepotrzebne `incRef`, bo wywoływany jest "copy constructor" */
+	/* Niepotrzebne `incRef`, bo wywoĹ‚ywany jest "copy constructor" */
 	return newStr;
 }
 
 template <typename charT>
 charT _toLowerCase(charT x)
 {
-	/* Czy jest numerem lub małą literą ASCII? */
+	/* Czy jest numerem lub maĹ‚Ä… literÄ… ASCII? */
 	if (((x >= 0x30) && (x <= 0x39)) || ((x >= 0x61) && (x <= 0x7A)))
 	{
 		return x;
 	}
-	/* Czy jest dużą literą ASCII? */
+	/* Czy jest duĹĽÄ… literÄ… ASCII? */
 	else if ((x >= 0x41) && (x <= 0x5A))
 	{
 		return (x + 0x20);
@@ -160,7 +160,7 @@ charT _toLowerCase(charT x)
 
 
 ////////////////////////////////////////////////////////////////
-// Funkcje związane z konstrukcją
+// Funkcje zwiÄ…zane z konstrukcjÄ…
 ////////////////////////////////////////////////////////////////
 
 template <typename charT>
@@ -281,7 +281,7 @@ void eStringPtrBase<charT>::incRef()
 
 
 ////////////////////////////////////////////////////////////////
-// Odwołania do wartości prywatnych
+// OdwoĹ‚ania do wartoĹ›ci prywatnych
 ////////////////////////////////////////////////////////////////
 
 template <typename charT>
@@ -326,10 +326,10 @@ void eStringPtrBase<charT>::copy(const eStringPtrBase<charT>& str)
 {
 	if (pString != str.pString)
 	{
-		/* Wyczyść obecne dane */
+		/* WyczyĹ›Ä‡ obecne dane */
 		decRef();
 
-		/* Przypisz nowe dane (w operatorze mamy dostęp do prywatnej wartości) */
+		/* Przypisz nowe dane (w operatorze mamy dostÄ™p do prywatnej wartoĹ›ci) */
 		pString = str.pString;
 	}
 	incRef();
@@ -338,7 +338,7 @@ void eStringPtrBase<charT>::copy(const eStringPtrBase<charT>& str)
 template <typename charT>
 eStringPtrBase<charT>& eStringPtrBase<charT>::operator = (const charT* str)
 {
-	/* Wyczyść obecne dane */
+	/* WyczyĹ›Ä‡ obecne dane */
 	decRef();
 
 	/* Przypisz nowe dane */
@@ -381,7 +381,7 @@ eStringPtrBase<charT>& eStringPtrBase<charT>::operator += (const eStringPtrBase<
 
 
 ////////////////////////////////////////////////////////////////
-// Różne funkcje operujące na tekstach
+// RĂłĹĽne funkcje operujÄ…ce na tekstach
 ////////////////////////////////////////////////////////////////
 
 template <typename charT>
@@ -511,7 +511,7 @@ eStringPtrBase<charT> eStringPtrBase<charT>::getSubstring(int pos, int count) co
 		count = myCount - pos;
 	}
 	
-	/* Niezmienone dane zapewnią kopię referencji */
+	/* Niezmienone dane zapewniÄ… kopiÄ™ referencji */
 	if ((0 == pos) && (myCount == count))
 	{
 		return *this;
@@ -523,7 +523,7 @@ eStringPtrBase<charT> eStringPtrBase<charT>::getSubstring(int pos, int count) co
 
 	std::memcpy(otherText, myText, sizeof(charT) * count);
 
-	/* Niepotrzebne `incRef`, bo wywoływany jest "copy constructor" */
+	/* Niepotrzebne `incRef`, bo wywoĹ‚ywany jest "copy constructor" */
 	return newStr;
 }
 
@@ -552,7 +552,7 @@ eStringPtrBase<charT> eStringPtrBase<charT>::getFilename() const
 
 
 ////////////////////////////////////////////////////////////////
-// Jawne instancje typów tekstu
+// Jawne instancje typĂłw tekstu
 ////////////////////////////////////////////////////////////////
 
 /* eString */

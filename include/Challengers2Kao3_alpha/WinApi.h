@@ -3,18 +3,18 @@
 
 #include "Challengers2Kao3.h"
 
-/* Luüne definicje opcjonalne */
+/* Lu≈∫ne definicje opcjonalne */
 
 #define OKNO_SZEROKOSC 640
 #define OKNO_WYSOKOSC 360
 #define BITMAPA1_SZEROKOSC 320
 #define BITMAPA1_WYSOKOSC 128
-#define KLASA_OKNA_1 L"Challengers2Kao3 - Okno g≥Ûwne"
+#define KLASA_OKNA_1 L"Challengers2Kao3 - Okno g≈Ç√≥wne"
 #define KLASA_OKNA_2 L"Challengers2Kao3 - Okno drugie"
 #define KLASA_OKNA_3 L"Challengers2Kao3 - Okno trzecie"
 #define KLASA_OKNA_4 L"Challengers2Kao3 - Okno czwarte"
 
-/* Definicje ID dla przyciskÛw */
+/* Definicje ID dla przycisk√≥w */
 
 #define ID_PRZYCISK (0xC9)
 #define ID_PRZYCISKI_SWIATY (0xC9 + 5)

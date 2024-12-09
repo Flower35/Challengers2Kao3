@@ -9,7 +9,7 @@
 static unsigned int PackRGBA (unsigned char r, unsigned char g, unsigned char b, unsigned char a)
 {
 	// return r | (g << 8) | (b << 16) | (a << 24);
-	return b | (g << 8) | (r << 16) | (a << 24); // Odwróć kolory (BGRA)
+	return b | (g << 8) | (r << 16) | (a << 24); // OdwrĂłÄ‡ kolory (BGRA)
 }
 
 

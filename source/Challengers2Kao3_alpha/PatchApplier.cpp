@@ -3,7 +3,7 @@
 
 
 ////////////////////////////////////////////////////////////////
-// Konstruktor klasy wstrzykuj¹cej patche
+// Konstruktor klasy wstrzykujÄ…cej patche
 ////////////////////////////////////////////////////////////////
 CPatchApplier::CPatchApplier(const wchar_t* full_path)
 : CFileOperator(INVALID_HANDLE_VALUE, false, INVALID_HANDLE_VALUE, true)
@@ -14,7 +14,7 @@ CPatchApplier::CPatchApplier(const wchar_t* full_path)
 
 
 ////////////////////////////////////////////////////////////////
-// Dekonstruktor klasy wstrzykuj¹cej patche
+// Dekonstruktor klasy wstrzykujÄ…cej patche
 ////////////////////////////////////////////////////////////////
 CPatchApplier::~CPatchApplier()
 {
@@ -40,21 +40,21 @@ void CPatchApplier::aplikujKod(uint32_t offset, uint32_t rozmiar, const char* ko
 ////////////////////////////////////////////////////////////////
 void CPatchApplier::aplikujCommonChanges()
 {
-	/**** Ró¿ne ****/
+	/**** RÃ³Å¼ne ****/
 	{
 		CWindow::zmienTekstOknaLadowania(L"Applying patch: [minor code changes]");
 
 		// FS Raw
 		aplikujKod(0x00006065, 0x01, "\x00");
 
-		// Pomiñ dekodowanie "ELEPHANT2.INI", "LEVELS.INI", "ITEMS.INI"
+		// PomiÅ„ dekodowanie "ELEPHANT2.INI", "LEVELS.INI", "ITEMS.INI"
 		aplikujKod(0x00223FF9, 0x05, "\xE9\x91\x00\x00\x00");
 
-		// Pomiñ sprawdzanie pliku "HOF.INI"
+		// PomiÅ„ sprawdzanie pliku "HOF.INI"
 		aplikujKod(0x0000B626, 0x05, "\xEB\x03\x90\x90\x90");
 		aplikujKod(0x00014B56, 0x05, "\xEB\x03\x90\x90\x90");
 
-		// Pomiñ logo i film intro
+		// PomiÅ„ logo i film intro
 		aplikujKod(0x0000EA77, 0x06, "\xE9\x20\x01\x00\x00\x90");
 
 		// Opcja "Choose level"
@@ -133,7 +133,7 @@ void CPatchApplier::aplikujCommonChanges()
 		// "misc/movies/kao.avi"
 		aplikujKod(0x0008E29F, 0x03, "\x55\x55\x55");
 
-		// [loading] Odwo³ania do "glOrtho()" z "eKao2Gamelet"
+		// [loading] OdwoÅ‚ania do "glOrtho()" z "eKao2Gamelet"
 		aplikujKod(0x00013966, 0x03, "\x72\x1C\x47");
 		aplikujKod(0x00013C91, 0x03, "\x72\x1C\x47");
 		aplikujKod(0x00013F11, 0x03, "\x72\x1C\x47");
@@ -146,11 +146,11 @@ void CPatchApplier::aplikujCommonChanges()
 		aplikujKod(0x00013FBB, 0x03, "\x72\x1C\xC7");
 		aplikujKod(0x00013FC0, 0x03, "\x72\x1C\x47");
 
-		// [loading] 2a: Pominiêcie domyœlnego rysowania
+		// [loading] 2a: PominiÄ™cie domyÅ›lnego rysowania
 		aplikujKod(0x000139DA, 0x05, "\xE9\xFD\x00\x00\x00"); // PUBLISHER
 		aplikujKod(0x00013CE5, 0x05, "\xE9\xFD\x00\x00\x00"); // BITMAP_2
 
-		// [loading] 2b: Wspólne zmiany przy wyœwietlaniu bitmap
+		// [loading] 2b: WspÃ³lne zmiany przy wyÅ›wietlaniu bitmap
 		aplikujKod(0x00013ADF, 0x01, "\x80"); // PUBLISHER
 		aplikujKod(0x00013DEA, 0x01, "\x80"); // BITMAP_2
 		aplikujKod(0x00013AEB, 0x03, "\x72\x1C\xC7"); // PUBLISHER
@@ -170,7 +170,7 @@ void CPatchApplier::aplikujCommonChanges()
 		aplikujKod(0x00009B54, 0x03, "\xEB\x7A\x90");
 		aplikujKod(0x00009BD0, 0x08, "\x89\xCB\x8B\x45\x08\x50\xEB\x08");
 
-		// "glutAppMain.cpp" - zmieñ nazwê okna z "Kangurek Kao: Tajemnica Wulkanu" na "Kao Challengers"
+		// "glutAppMain.cpp" - zmieÅ„ nazwÄ™ okna z "Kangurek Kao: Tajemnica Wulkanu" na "Kao Challengers"
 		aplikujKod(0x002E1E42, 0x0E, "\x6F\x20\x43\x68\x61\x6C\x6C\x65\x6E\x67\x65\x72\x73\x00");
 
 		// "GameApplication.cpp" - popraw sprawdzanie liczby graczy do "theMPGame"
@@ -184,17 +184,17 @@ void CPatchApplier::aplikujCommonChanges()
 		aplikujKod(0x0000ACC8, 0x07, "\xA1\xFC\xF1\x75\x00\xEB\x20");
 		aplikujKod(0x00083E4B, 0x45, "\x8D\x54\xE4\x0C\x68\xFC\xF1\x75\x00\x68\x4C\xBD\x6E\x00\x52\xE8\xC1\x7A\xFA\xFF\x83\xC4\x0C\x89\xC1\x8B\x46\x08\x83\xC0\x12\x8D\x54\xE4\x08\x50\x52\xE8\xAB\x79\xFA\xFF\x8D\x4C\xE4\x0C\xE8\xD2\x76\xFA\xFF\x8D\x7E\x08\x89\xF9\xE8\xC8\x76\xFA\xFF\x8B\x44\xE4\x08\x89\x07\xEB\x1B");
 
-		// @@@ Ekrany ³adowania poziomów
+		// @@@ Ekrany Å‚adowania poziomÃ³w
 		aplikujKod(0x002DD138, 0x0D, "\x2F\x6C\x6F\x61\x64\x69\x6E\x67\x2E\x62\x6D\x70\x00");
 		aplikujKod(0x0000C666, 0x04, "\xE9\x57\x02\x00");
 		aplikujKod(0x0000C8B4, 0x06, "\xE9\xB0\x01\x00\x00\x90");
 		aplikujKod(0x0000C8C2, 0x3A, "\x83\xEC\x04\x89\xE1\x8D\x44\xE4\x28\x50\x68\xBC\x38\x6E\x00\x51\xE8\x49\xF0\x01\x00\x83\xC4\x0C\x89\xC1\x68\x38\xD1\x6D\x00\x8D\x44\xE4\x08\x50\xE8\x35\xEF\x01\x00\x89\xE1\xE8\x5E\xEC\x01\x00\x83\xC4\x04\xE9\x76\xFD\xFF\xFF\x90\x90");
 
-		// @@@ Inne przydatne hacki w Menu G³ównym
+		// @@@ Inne przydatne hacki w Menu GÅ‚Ã³wnym
 		aplikujKod(0x0000DC25, 0x06, "\xE9\xA0\x01\x00\x00\x90");
 		aplikujKod(0x0000B0AB, 0x02, "\xC4\x42");
 
-		// @@@ Pomiñ niepotrzebne pliki z Tajemnicy Wulkanu
+		// @@@ PomiÅ„ niepotrzebne pliki z Tajemnicy Wulkanu
 		aplikujKod(0x0000C64A, 0x06, "\x83\xEC\x04\xEB\x11\x90");
 		aplikujKod(0x0000CB91, 0x04, "\xE9\x1C\x01\x00");
 		aplikujKod(0x001FF953, 0x02, "\x67\x02");
@@ -211,13 +211,13 @@ void CPatchApplier::aplikujCommonChanges()
 
 
 ////////////////////////////////////////////////////////////////
-// Aplikuj now¹ ³atkê
+// Aplikuj nowÄ… Å‚atkÄ™
 ////////////////////////////////////////////////////////////////
 int CPatchApplier::aplikujLatke(int id)
 {
 	try
 	{
-		/* SprawdŸ plik docelowy, je¿eli nie by³ jeszcze otwierany */
+		/* SprawdÅº plik docelowy, jeÅ¼eli nie byÅ‚ jeszcze otwierany */
 		if (INVALID_HANDLE_VALUE == Plik2)
 		{
 			if (!otworzPlikDoZapisu(Sciezka.getText(), 1))
@@ -232,7 +232,7 @@ int CPatchApplier::aplikujLatke(int id)
 			}
 		}
 
-		/* SprawdŸ, który patch zaaplikowaæ */
+		/* SprawdÅº, ktÃ³ry patch zaaplikowaÄ‡ */
 		switch (id)
 		{
 			/* "Kao Challengers: Single Player" */
@@ -242,7 +242,7 @@ int CPatchApplier::aplikujLatke(int id)
 
 				CWindow::zmienTekstOknaLadowania(L"Applying patch: [SinglePlayer code changes]");
 
-				// Zmieñ nazwê g³ównego folderu
+				// ZmieÅ„ nazwÄ™ gÅ‚Ã³wnego folderu
 				aplikujKod(0x00072601, 0x02, "\x24\xA5");
 				aplikujKod(0x00072641, 0x02, "\x24\xA5");
 				aplikujKod(0x002EA524, 0x12, "\x2E\x2F\x63\x68\x61\x6C\x6C\x65\x6E\x67\x65\x72\x73\x5F\x73\x70\x2F\x00");
@@ -250,7 +250,7 @@ int CPatchApplier::aplikujLatke(int id)
 				// ERROR: "Class eSetCollisionFlags has duplicate feature 'const NO_COLLIDE'."
 				aplikujKod(0x0021039E, 0x02, "\xEB\x0F");
 
-				// "eSwietlikKao" (nieznana przyczyna b³êdu)
+				// "eSwietlikKao" (nieznana przyczyna bÅ‚Ä™du)
 				aplikujKod(0x0010E6A2, 0x06, "\xE9\x06\x01\x00\x00\x90");
 
 				// ERROR: "self shadowing problem."
@@ -300,7 +300,7 @@ int CPatchApplier::aplikujLatke(int id)
 				// @@@ COMPUTE GAME PROGRESS (podczas zapisywania)
 				aplikujKod(0x00003B90, 0xD4, "\x31\xC9\x51\x51\x51\x51\x51\x51\x51\x8B\x35\x70\xBE\x76\x00\x3B\x0D\x68\xBE\x76\x00\x7D\x39\x8B\x1C\x8E\x8A\x43\x20\x83\xE0\x01\x01\x04\xE4\x8B\x43\x28\x01\x44\xE4\x04\x8B\x43\x2C\x01\x44\xE4\x08\x8B\x43\x30\x01\x44\xE4\x0C\x8B\x43\x34\x01\x44\xE4\x10\x8B\x43\x38\x01\x44\xE4\x14\x8B\x43\x3C\x01\x44\xE4\x18\x41\xEB\xBF\xD9\x05\x4C\x3C\x40\x00\xDA\x0C\xE4\xDA\x35\x68\xBE\x76\x00\xD9\x05\x50\x3C\x40\x00\xDA\x4C\xE4\x10\xDA\x74\xE4\x04\xD9\x05\x54\x3C\x40\x00\xDA\x4C\xE4\x14\xDA\x74\xE4\x08\xD9\x05\x54\x3C\x40\x00\xDA\x4C\xE4\x18\xDA\x74\xE4\x0C\xD9\x05\x18\xBF\x76\x00\xD8\x1D\x5C\x3C\x40\x00\xDF\xE0\xF6\xC4\x40\x74\x08\xD9\x05\x58\x3C\x40\x00\xEB\x06\xD9\x05\x60\x3C\x40\x00\xDE\xC1\xDE\xC1\xDE\xC1\xDE\xC1\xDB\x1C\xE4\x8B\x04\xE4\x83\xC4\x1C\xC3\x00\x00\x34\x42\x00\x00\xA0\x41\x00\x00\x20\x41\x00\x00\xA0\x40\x00\x00\x80\x3F\x00\x00\x00\x00");
 
-				// Opcja "Nowy wyœcig" tylko w poziomie "Wyœcig"
+				// Opcja "Nowy wyÅ›cig" tylko w poziomie "WyÅ›cig"
 				aplikujKod(0x00013727, 0x01, "\x0D");
 
 			} break;
@@ -312,12 +312,12 @@ int CPatchApplier::aplikujLatke(int id)
 
 				CWindow::zmienTekstOknaLadowania(L"Applying patch: [MultiPlayer code changes]");
 
-				// Zmieñ nazwê g³ównego folderu
+				// ZmieÅ„ nazwÄ™ gÅ‚Ã³wnego folderu
 				aplikujKod(0x00072601, 0x02, "\x24\xA5");
 				aplikujKod(0x00072641, 0x02, "\x24\xA5");
 				aplikujKod(0x002EA524, 0x12, "\x2E\x2F\x63\x68\x61\x6C\x6C\x65\x6E\x67\x65\x72\x73\x5F\x6D\x70\x2F\x00");
 
-				// Odczytywanie poziomów MultiPlayer ("mp_*") zamiast SinglePlayer
+				// Odczytywanie poziomÃ³w MultiPlayer ("mp_*") zamiast SinglePlayer
 				aplikujKod(0x00131C41, 0x01, "\x86");
 
 				// "theMPGame" (maksymalna liczba graczy)
@@ -329,27 +329,27 @@ int CPatchApplier::aplikujLatke(int id)
 				aplikujKod(0x00011ECE, 0x06, "\xEB\x0E\x90\x90\x90\x90");
 				aplikujKod(0x0000DB1D, 0x06, "\xEB\x0E\x90\x90\x90\x90");
 
-				// "eUIRacingDataRevEng" (problem ze s³owem "owner")
+				// "eUIRacingDataRevEng" (problem ze sÅ‚owem "owner")
 				aplikujKod(0x002F9300, 0x22, "\x68\x6F\x6C\x64\x65\x72\x00\x00\x65\x55\x49\x52\x61\x63\x69\x6E\x67\x20\x68\x61\x73\x20\x6E\x6F\x74\x20\x62\x65\x65\x6E\x20\x73\x65\x74");
 				aplikujKod(0x001C98E5, 0x02, "\x00\x93");
 				aplikujKod(0x001C9B77, 0x02, "\x00\x93");
 				aplikujKod(0x001C9A1A, 0x01, "\x08");
 
-				// Zmniejszenie wielkoœci nicku gracza (lewa czeœæ ekranu)
+				// Zmniejszenie wielkoÅ›ci nicku gracza (lewa czeÅ›Ä‡ ekranu)
 				aplikujKod(0x001F82FA, 0x02, "\xC0\x3E");
 
 				// @@@ "eMenu" EXTRA HACK
 				aplikujKod(0x0000DB61, 0x07, "\x48\xA3\x80\xBE\x76\x00\xEB");
 				aplikujKod(0x001ECEE6, 0xCE, "\x53\x55\x57\x8B\x7C\xE4\x78\x8B\x5C\xE4\x7C\x89\x5C\xE4\x44\x89\x5C\xE4\x54\xC7\x44\xE4\x2C\xAE\x47\x61\x3E\xC7\x44\xE4\x30\x7B\x14\xAE\x3E\xC7\x44\xE4\x34\x00\x00\x00\x3F\xB8\x00\x00\x80\x3F\x89\x44\xE4\x38\x89\x44\xE4\x3C\x89\x44\xE4\x40\x31\xC0\x3E\x89\x44\xE4\x48\x3E\x89\x44\xE4\x4C\x3E\x89\x44\xE4\x50\xA1\x7C\xBE\x76\x00\x8B\x0D\x80\xBE\x76\x00\x8B\x2C\x88\x8B\x46\x74\x6A\x00\x50\x89\xF9\xE8\x02\xD3\xE6\xFF\xD9\x44\xE4\x7C\xD8\x0D\x78\xB2\x69\x00\x51\xD9\x1C\xE4\x8D\x4C\xE4\x30\x51\x68\x00\x00\x48\x42\x68\x72\x1C\x4C\x44\x68\x00\x00\x70\x41\x68\x00\x00\x20\xC1\x57\xE8\x05\xCB\xFF\xFF\x83\xC4\x1C\x8B\x4E\x74\x8D\x54\xE4\x48\x8D\x44\xE4\x38\x52\x50\x6A\x00\x68\x9A\x99\x19\x3F\x6A\x1A\x6A\x00\x8D\x55\x08\x52\xE8\xB1\x44\x00\x00\x5F\x5D\x5B\x8B\x4C\xE4\x5C\x5E\x64\x89\x0D\x00\x00\x00\x00\x83\xC4\x64\xC2\x08\x00");
 
-				// @@@ Schowaj wiêkszoœæ opcji w Menu G³ównym
+				// @@@ Schowaj wiÄ™kszoÅ›Ä‡ opcji w Menu GÅ‚Ã³wnym
 				aplikujKod(0x000136ED, 0x2C, "\x30\xC0\x88\x86\x19\x17\x00\x00\x88\x86\xA5\x28\x00\x00\x88\x86\x5D\x28\x00\x00\x88\x86\x41\x16\x00\x00\x88\x86\x89\x16\x00\x00\x88\x86\xA0\x07\x00\x00\xE9\x60\x01\x00\x00\x90");
 
 			} break;
 
 			default:
 			{
-				throw EKomunikat(L"Wybrana ³atka nie jest jeszcze gotowa...\r\nNIE BIJCIE MNIE !!!");
+				throw EKomunikat(L"Wybrana Å‚atka nie jest jeszcze gotowa...\r\nNIE BIJCIE MNIE !!!");
 				return 1;
 			}
 		}

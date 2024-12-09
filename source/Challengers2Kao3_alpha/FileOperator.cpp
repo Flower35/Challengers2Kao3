@@ -66,7 +66,7 @@ void CFileOperator::zapiszPlik(void* co, int ile)
 
 
 ////////////////////////////////////////////////////////////////
-// Przesuñ pozycjê w pierwszym pliku
+// PrzesuÅ„ pozycjÄ™ w pierwszym pliku
 ////////////////////////////////////////////////////////////////
 int CFileOperator::przesunPlik(int ile)
 {
@@ -75,7 +75,7 @@ int CFileOperator::przesunPlik(int ile)
 
 
 ////////////////////////////////////////////////////////////////
-// Otwórz nowy plik do odczytywania
+// OtwÃ³rz nowy plik do odczytywania
 ////////////////////////////////////////////////////////////////
 bool CFileOperator::otworzPlikDoOdczytu(const wchar_t* nazwa)
 {
@@ -93,7 +93,7 @@ bool CFileOperator::otworzPlikDoOdczytu(const wchar_t* nazwa)
 
 
 ////////////////////////////////////////////////////////////////
-// Utwórz nowy plik do zapisywania
+// UtwÃ³rz nowy plik do zapisywania
 ////////////////////////////////////////////////////////////////
 bool CFileOperator::otworzPlikDoZapisu(const wchar_t* nazwa, int tryb)
 {
@@ -130,7 +130,7 @@ bool CFileOperator::otworzPlikDoZapisu(const wchar_t* nazwa, int tryb)
 
 
 ////////////////////////////////////////////////////////////////
-// Twórz kolejne podkatalogi przed utworzeniem pliku
+// TwÃ³rz kolejne podkatalogi przed utworzeniem pliku
 ////////////////////////////////////////////////////////////////
 bool CFileOperator::tworzPodkatalogi(wchar_t* pelna_sciezka)
 {
@@ -163,7 +163,7 @@ bool CFileOperator::tworzPodkatalogi(wchar_t* pelna_sciezka)
 
 
 ////////////////////////////////////////////////////////////////
-// Czy powinniœmy eksportowaæ dany plik?
+// Czy powinniÅ›my eksportowaÄ‡ dany plik?
 ////////////////////////////////////////////////////////////////
 bool CFileOperator::czyPlikIstnieje(const wchar_t* pelna_sciezka)
 {
@@ -172,7 +172,7 @@ bool CFileOperator::czyPlikIstnieje(const wchar_t* pelna_sciezka)
 
 
 ////////////////////////////////////////////////////////////////
-// Czy nale¿y skopiowaæ wa¿ny plik silnika?
+// Czy naleÅ¼y skopiowaÄ‡ waÅ¼ny plik silnika?
 // (np. poziom "Lost Village", albo poziomy MultiPlayer)
 ////////////////////////////////////////////////////////////////
 bool CFileOperator::czyNalezySkopiowacWaznyPlik(const StTestowyPlik &plik)
@@ -209,7 +209,7 @@ bool CFileOperator::czyNalezySkopiowacWaznyPlik(const StTestowyPlik &plik)
 
 
 ////////////////////////////////////////////////////////////////
-// Kopiuj wa¿ne pliki silnika
+// Kopiuj waÅ¼ne pliki silnika
 ////////////////////////////////////////////////////////////////
 void CFileOperator::kopiujWaznePliki(int* pliki_skopiowane, eUnicodeString* katalog)
 {
@@ -300,7 +300,7 @@ void CFileOperator::kopiujWaznePliki(int* pliki_skopiowane, eUnicodeString* kata
 		}
 	}
 
-	/* Zwróæ wyniki */
+	/* ZwrÃ³Ä‡ wyniki */
 
 	CWindow::zmienTekstOknaLadowania(L"");
 }

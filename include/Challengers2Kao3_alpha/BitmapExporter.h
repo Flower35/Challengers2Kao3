@@ -5,7 +5,7 @@
 #include "FileOperator.h"
 
 
-/* Definicje rodzajów Bitmap z KAO2 */
+/* Definicje rodzajÃ³w Bitmap z KAO2 */
 #define RGBA8 0x00
 #define RGB8 0x01
 #define PAL8_RGBA8 0x02

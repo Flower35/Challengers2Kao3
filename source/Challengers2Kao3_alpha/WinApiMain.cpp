@@ -26,7 +26,7 @@ CWindow::CWindow() {}
 
 
 ////////////////////////////////////////////////////////////////
-// WinApi: Wyczyœæ dane przy zamykaniu
+// WinApi: WyczyÅ›Ä‡ dane przy zamykaniu
 ////////////////////////////////////////////////////////////////
 CWindow::~CWindow()
 {
@@ -72,7 +72,7 @@ bool CWindow::utworzOkienka()
 	if (!RegisterClassEx(&WinClass)) { return false; };
 
 	////////////////////////////////////////////////////////////////
-	// * Okno g³ówne
+	// * Okno gÅ‚Ã³wne
 
 	wymiary = {0, 0, OKNO_SZEROKOSC, OKNO_WYSOKOSC};
 	AdjustWindowRect(&wymiary, WS_OVERLAPPEDWINDOW, FALSE);
@@ -105,7 +105,7 @@ bool CWindow::utworzOkienka()
 	SendMessage(okienko, WM_SETFONT, (WPARAM)Czcionka[0], 0);
 
 	////////////////////////////////////////////////////////////////
-	// * Okno ³adowania
+	// * Okno Å‚adowania
 
 	wymiary = {0, 0, 640, 48};
 	AdjustWindowRect(&wymiary, WS_OVERLAPPEDWINDOW, FALSE);
@@ -136,7 +136,7 @@ bool CWindow::utworzOkienka()
 
 
 	////////////////////////////////////////////////////////////////
-	// * Okno z wyborem poziomów
+	// * Okno z wyborem poziomÃ³w
 
 	wymiary = {0, 0, 640, 480};
 	AdjustWindowRect(&wymiary, WS_OVERLAPPEDWINDOW, FALSE);
@@ -160,7 +160,7 @@ bool CWindow::utworzOkienka()
 
 	for (int w = 0; w < NUM_WORLDS; w++)
 	{
-		// Czy nale¿y przejœæ do kolejnej kolumny
+		// Czy naleÅ¼y przejÅ›Ä‡ do kolejnej kolumny
 		if ((4 == w) || (7 == w))
 		{
 			offx += 208;
@@ -179,7 +179,7 @@ bool CWindow::utworzOkienka()
 		};
 		SendMessage(PrzyciskiSwiaty[w], WM_SETFONT, (WPARAM)Czcionka[1], 0);
 
-		// Dodaj napis o œwiecie
+		// Dodaj napis o Å›wiecie
 		if (NULL == (okienko = CreateWindow(
 			WC_STATIC,
 			KaoChallengersLevels[w].name,
@@ -191,7 +191,7 @@ bool CWindow::utworzOkienka()
 		};
 		SendMessage(okienko, WM_SETFONT, (WPARAM)Czcionka[0], 0);
 
-		// Przesuñ siê ni¿ej i dodawaj kolejne poziomy
+		// PrzesuÅ„ siÄ™ niÅ¼ej i dodawaj kolejne poziomy
 		offy += 28;
 		for (int l = 0; l < KaoChallengersLevels[w].num; l++)
 		{
@@ -207,7 +207,7 @@ bool CWindow::utworzOkienka()
 			SendMessage(CheckBoxPoziomy[offl], WM_SETFONT, (WPARAM)Czcionka[1], 0);
 			SendMessage(CheckBoxPoziomy[offl], BM_SETCHECK, (WPARAM)BST_CHECKED, 0);
 
-			// Bêdziemy dodawaæ kolejny CheckBox kilka pikseli ni¿ej
+			// BÄ™dziemy dodawaÄ‡ kolejny CheckBox kilka pikseli niÅ¼ej
 			offl++;
 			offy += 16;
 		}
@@ -216,7 +216,7 @@ bool CWindow::utworzOkienka()
 
 	
 	////////////////////////////////////////////////////////////////
-	// * Okno z ³atkami do gry
+	// * Okno z Å‚atkami do gry
 
 	wymiary = {0, 0, 640, 480};
 	AdjustWindowRect(&wymiary, WS_OVERLAPPEDWINDOW, FALSE);
@@ -275,7 +275,7 @@ bool CWindow::utworzOkienka()
 	};
 	SendMessage(okienko, WM_SETFONT, (WPARAM)Czcionka[0], 0);
 
-	/* Radio buttony z wyborem ³atek */
+	/* Radio buttony z wyborem Å‚atek */
 	for (int i = 0; i < NUM_LATKI; i++)
 	{
 		if (NULL == (RadioButtonLatki[i] = CreateWindow(
@@ -291,7 +291,7 @@ bool CWindow::utworzOkienka()
 	}
 	SendMessage(RadioButtonLatki[0], BM_SETCHECK, (WPARAM)BST_CHECKED, 0);
 
-	/* Krótkie opisy ³atek */
+	/* KrÃ³tkie opisy Å‚atek */
 	if (NULL == (okienko = CreateWindow(
 		WC_STATIC,
 		latki_opisy,
@@ -303,7 +303,7 @@ bool CWindow::utworzOkienka()
 	};
 	SendMessage(okienko, WM_SETFONT, (WPARAM)Czcionka[1], 0);
 
-	/* Przycisk do aplikowania modów */
+	/* Przycisk do aplikowania modÃ³w */
 	if (NULL == (okienko = CreateWindow(
 		WC_BUTTON,
 		L"Apply important game tweaks!",
@@ -315,7 +315,7 @@ bool CWindow::utworzOkienka()
 	};
 	SendMessage(okienko, WM_SETFONT, (WPARAM)Czcionka[0], 0);
 
-	/* Przycisk do kopiowania plików silnika */
+	/* Przycisk do kopiowania plikÃ³w silnika */
 	if (NULL == (okienko = CreateWindow(
 		WC_BUTTON,
 		L"Copy important game files!",
@@ -339,7 +339,7 @@ bool CWindow::utworzOkienka()
 	};
 	SendMessage(okienko, WM_SETFONT, (WPARAM)Czcionka[0], 0);
 
-	/* Checkboxy z opcjami podczas eksportowania plików z PAK */
+	/* Checkboxy z opcjami podczas eksportowania plikÃ³w z PAK */
 	for (int i = 0; i < NUM_OPCJE_ZAAWANSOWANE; i++)
 	{
 		if (NULL == (CheckBoxZaawansowane[i] = CreateWindow(
@@ -357,7 +357,7 @@ bool CWindow::utworzOkienka()
 
 
 	////////////////////////////////////////////////////////////////
-	// * Pola z wyborem katalogów
+	// * Pola z wyborem katalogÃ³w
 
 	const wchar_t* editboxy_nazwy[2] =
 	{
@@ -395,7 +395,7 @@ bool CWindow::utworzOkienka()
 	}
 
 	////////////////////////////////////////////////////////////////
-	// * Przyciski w oknie g³ównym
+	// * Przyciski w oknie gÅ‚Ã³wnym
 
 	const wchar_t* przyciski_nazwy[3] =
 	{
@@ -437,7 +437,7 @@ bool CWindow::utworzOkienka()
 
 
 ////////////////////////////////////////////////////////////////
-// WinApi: G³ówna funkcja obiektu okna
+// WinApi: GÅ‚Ã³wna funkcja obiektu okna
 ////////////////////////////////////////////////////////////////
 int CWindow::petlaProgramu()
 {
@@ -464,7 +464,7 @@ int CWindow::petlaProgramu()
 	Ofn.lpstrTitle = L"Select Kao the Kangaroo game executable";
 	Ofn.hwndOwner = Okna[0];
 	Ofn.hInstance = Instancja;
-	/* WA¯NE! Flaga "OFN_NOCHANGEDIR" musi byæ ustawiona, inaczej nie dzia³a kopiowanie plików z "./kao_pliki/" */
+	/* WAÅ»NE! Flaga "OFN_NOCHANGEDIR" musi byÄ‡ ustawiona, inaczej nie dziaÅ‚a kopiowanie plikÃ³w z "./kao_pliki/" */
 	Ofn.Flags = (OFN_NOCHANGEDIR | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY | OFN_NOREADONLYRETURN);
 
 	odtworzDzwiek(GLOS_KAO_ZROBIEWSZYSTKO);
@@ -482,7 +482,7 @@ int CWindow::petlaProgramu()
 
 
 ////////////////////////////////////////////////////////////////
-// WinApi:: Funkcja zmieniaj¹ca tekst w ma³ym okienku
+// WinApi:: Funkcja zmieniajÄ…ca tekst w maÅ‚ym okienku
 ////////////////////////////////////////////////////////////////
 void CWindow::zmienTekstOknaLadowania(const wchar_t* abc)
 {
@@ -491,7 +491,7 @@ void CWindow::zmienTekstOknaLadowania(const wchar_t* abc)
 	SetWindowText(LoadingTekst, abc);
 	UpdateWindow(Okna[1]);
 
-	/* Odblokuj mo¿liwoœæ przesuwania okien i nie pokazuj komunikatu "Brak odpowiedzi..." */
+	/* Odblokuj moÅ¼liwoÅ›Ä‡ przesuwania okien i nie pokazuj komunikatu "Brak odpowiedzi..." */
 	while (PeekMessage(&Komunikat, NULL, 0, 0, PM_REMOVE))
 	{
 		TranslateMessage(&Komunikat);
@@ -515,7 +515,7 @@ bool CWindow::czyJestOpcjaZaawansowana(int id)
 
 
 ////////////////////////////////////////////////////////////////
-// WinApi:: Odtwórz plik dŸwiêkowy
+// WinApi:: OdtwÃ³rz plik dÅºwiÄ™kowy
 ////////////////////////////////////////////////////////////////
 void CWindow::odtworzDzwiek(int id)
 {
@@ -541,13 +541,13 @@ void CWindow::odtworzDzwiek(int id)
 
 		case GLOS_KAO_ZROBIEWSZYSTKO:
 		{
-			id = ID_WAVE4; // "Zrobiê wszystko, co w mojej mocy!"
+			id = ID_WAVE4; // "ZrobiÄ™ wszystko, co w mojej mocy!"
 			break;
 		}
 
 		case GLOS_KAO_PROSZE:
 		{
-			id = ID_WAVE5; // "Proszê!"
+			id = ID_WAVE5; // "ProszÄ™!"
 			break;
 		}
 
@@ -562,7 +562,7 @@ void CWindow::odtworzDzwiek(int id)
 
 
 ////////////////////////////////////////////////////////////////
-// WinApi: G³ówna Funkcja (MAIN)
+// WinApi: GÅ‚Ã³wna Funkcja (MAIN)
 ////////////////////////////////////////////////////////////////
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevious, LPSTR lpCmdLine, int nCmdShow)
 {
@@ -576,7 +576,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevious, LPSTR lpCmdLine, in
 	{
 		MessageBox(
 			NULL,
-			L"Nie uda³o siê ustawiæ œcie¿ki docelowej debugowej!",
+			L"Nie udaÅ‚o siÄ™ ustawiÄ‡ Å›cieÅ¼ki docelowej debugowej!",
 			KOMUNIKAT_TYTUL,
 			(MB_OK | MB_ICONERROR));
 
@@ -598,7 +598,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevious, LPSTR lpCmdLine, in
 		}
 	}
 
-	/* Uruchom aplikacjê */
+	/* Uruchom aplikacjÄ™ */
 	CWindow::Instancja = hInstance;
 	return CWindow::petlaProgramu();
 };

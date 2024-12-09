@@ -5,10 +5,10 @@
 #include "FileOperator.h"
 
 
-/* Luüne definicje dla formatu WAV */
+/* Lu≈∫ne definicje dla formatu WAV */
 //// (redefinicja) #define WAVE_FORMAT_PCM 0x0001
 #define WAVE_FORMAT_EXTENSIBLE (-2) // 0xFFFE
-#define MIDI_UNITY_NOTE 60 // düwiÍk "middle C"
+#define MIDI_UNITY_NOTE 60 // d≈∫wiƒôk "middle C"
 #define WAV_ATRAC3PLUS_GUID "\xBF\xAA\x23\xE9\x58\xCB\x71\x44\xA1\x19\xFF\xFA\x01\xE4\xCE\x62"
 
 

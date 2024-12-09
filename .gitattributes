@@ -1,0 +1,3 @@
+*.cpp text working-tree-encoding=windows-1250 eol=crlf
+*.h   text working-tree-encoding=windows-1250 eol=crlf
+*.rc  text working-tree-encoding=windows-1250 eol=crlf

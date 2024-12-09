@@ -28,7 +28,7 @@ int CSoundExporter::decodeVagBlocks(int32_t end_offset, int32_t &wskaznik, int32
 
 	bool last_block_flag = false;
 
-	/* Czy mamy mo¿liwoœæ odczytania jeszcze jednego bloku? */
+	/* Czy mamy moÅ¼liwoÅ›Ä‡ odczytania jeszcze jednego bloku? */
 	while ((przesunPlik(0) + 16) <= end_offset)
 	{
 		if (last_block_flag)
@@ -91,7 +91,7 @@ int CSoundExporter::decodeVagBlocks(int32_t end_offset, int32_t &wskaznik, int32
 				{
 					loopEnd = wskaznik;
 
-					/* Od bloku koñcz¹cego pêtle mog¹ równie¿ byæ nieprzyjemne dŸwiêki */
+					/* Od bloku koÅ„czÄ…cego pÄ™tle mogÄ… rÃ³wnieÅ¼ byÄ‡ nieprzyjemne dÅºwiÄ™ki */
 					return 0;
 				}
 				break;
@@ -139,8 +139,8 @@ int CSoundExporter::decodeVagBlocks(int32_t end_offset, int32_t &wskaznik, int32
 			wskaznik += 2;
 		}
 		
-		/* W koñcówce mo¿na znaleŸæ niepotrzebne bajty... */
-		/* Najczêœæiej dotyczy to zapêtlanych plików dŸwiêkowych */
+		/* W koÅ„cÃ³wce moÅ¼na znaleÅºÄ‡ niepotrzebne bajty... */
+		/* NajczÄ™Å›Ä‡iej dotyczy to zapÄ™tlanych plikÃ³w dÅºwiÄ™kowych */
 		if (przesunPlik(0) == end_offset)
 		{
 			return 0;
@@ -162,11 +162,11 @@ int CSoundExporter::readVagFormat()
 	int32_t start_offset;
 	char nazwa_dzwieku[0x10];
 	int32_t data_size = 0; // Waveform data size (bytes)
-	int32_t wskaznik = 0; // Zawsze wczeœniej ni¿ (4 * data_size)
+	int32_t wskaznik = 0; // Zawsze wczeÅ›niej niÅ¼ (4 * data_size)
 	int32_t loopBegin = (-1);
 	int32_t loopEnd = (-1);
 
-	// [0x00] SprawdŸ nag³ówek
+	// [0x00] SprawdÅº nagÅ‚Ã³wek
 	czytajPlik(&x, 0x04);
 	if ((*(int32_t*)"VAGp") != x)
 	{
@@ -174,7 +174,7 @@ int CSoundExporter::readVagFormat()
 		return 1;
 	}
 
-	// [0x04] SprawdŸ wersjê
+	// [0x04] SprawdÅº wersjÄ™
 	czytajPlik(&x, 0x04);
 	x = ((x >> 24) & 0xFF) | ((x >> 8) & 0xFF00) | ((x << 8) & 0xFF0000) | ((x << 24) & 0xFF000000);
 	if (32 != x)
@@ -188,7 +188,7 @@ int CSoundExporter::readVagFormat()
 	czytajPlik(&x, 0x04);
 	data_size = ENDIAN_SWAP(x);
 
-	// [0x10] Odczytaj czêstotliwoœæ próbkowania
+	// [0x10] Odczytaj czÄ™stotliwoÅ›Ä‡ prÃ³bkowania
 	czytajPlik(&x, 0x04);
 	Wav.Format.dwSamplesPerSec = ENDIAN_SWAP(x);
 	switch (Wav.Format.dwSamplesPerSec)
@@ -199,31 +199,31 @@ int CSoundExporter::readVagFormat()
 		}
 		default:
 		{
-			throw EKomunikat(L"Niepoprawna czêstotliwoœæ próbkowania.\r\nOczekiwano na 11025, 22050, 16000 lub 20000 Hz.");
+			throw EKomunikat(L"Niepoprawna czÄ™stotliwoÅ›Ä‡ prÃ³bkowania.\r\nOczekiwano na 11025, 22050, 16000 lub 20000 Hz.");
 			return 1;
 		}
 	}
 
-	// [0x1E] Odczytaj liczbê kana³ów (i pomiñ jeden bajt)
+	// [0x1E] Odczytaj liczbÄ™ kanaÅ‚Ã³w (i pomiÅ„ jeden bajt)
 	przesunPlik(0x0A);
 	czytajPlik(&x, 0x02);
 	x = (x & 0xFF);
 	Wav.Format.wChannels = ((0 == x) || (1 == x)) ? 1 : x;
 	if (1 != Wav.Format.wChannels)
 	{
-		throw EKomunikat(L"Niepoprawna liczba kana³ów audio. Oczekiwano na 1 (Mono).");
+		throw EKomunikat(L"Niepoprawna liczba kanaÅ‚Ã³w audio. Oczekiwano na 1 (Mono).");
 		return 1;
 	}
 
-	// [0x20] Odczytaj nazwê dŸwiêku
+	// [0x20] Odczytaj nazwÄ™ dÅºwiÄ™ku
 	czytajPlik(nazwa_dzwieku, 0x10);
 	if (0 != std::memcmp("tate2003", nazwa_dzwieku, 0x08))
 	{
-		throw EKomunikat(L"Niepoprawna nazwa dŸwiêku. Oczekiwano \"tate2003\".");
+		throw EKomunikat(L"Niepoprawna nazwa dÅºwiÄ™ku. Oczekiwano \"tate2003\".");
 		return 1;
 	}
 
-	// [0x40] Pocz¹tek dekodowania
+	// [0x40] PoczÄ…tek dekodowania
 	start_offset = przesunPlik(0x10);
 
 	// Oblicz dane do zapisu
@@ -235,7 +235,7 @@ int CSoundExporter::readVagFormat()
 	}
 	catch (std::bad_alloc)
 	{
-		throw EKomunikat(L"Nie uda³o siê zaalokowaæ pamiêci na Dane wyjœciowe Audio...");
+		throw EKomunikat(L"Nie udaÅ‚o siÄ™ zaalokowaÄ‡ pamiÄ™ci na Dane wyjÅ›ciowe Audio...");
 		return 1;
 	}
 
@@ -247,10 +247,10 @@ int CSoundExporter::readVagFormat()
 	}
 	CWindow::zmienTekstOknaLadowania(L"");
 
-	// Podmieñ rozmiar danych PCM
+	// PodmieÅ„ rozmiar danych PCM
 	Wav.Data.chunkSize = wskaznik;
 
-	// Je¿eli znaleziono informacje o pêtlach, to dodaj tak¹ struktrê
+	// JeÅ¼eli znaleziono informacje o pÄ™tlach, to dodaj takÄ… struktrÄ™
 	if ((loopBegin >= 0) && (loopEnd > loopBegin))
 	{
 		Wav.Sampler.cSampleLoops = 1;
@@ -261,7 +261,7 @@ int CSoundExporter::readVagFormat()
 		}
 		catch (std::bad_alloc)
 		{
-			throw EKomunikat(L"Nie uda³o siê zaalokowaæ pamiêci na Pêtle Audio...");
+			throw EKomunikat(L"Nie udaÅ‚o siÄ™ zaalokowaÄ‡ pamiÄ™ci na PÄ™tle Audio...");
 			return 1;
 		}
 

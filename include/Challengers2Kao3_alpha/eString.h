@@ -1,11 +1,11 @@
-﻿#ifndef H_KAO2_STRING
+ď»ż#ifndef H_KAO2_STRING
 #define H_KAO2_STRING
 
 #include <cstring> // `std::memcpy`
 
 
 ////////////////////////////////////////////////////////////////
-// Klasay napisów w KAO2/KAO3
+// Klasay napisĂłw w KAO2/KAO3
 ////////////////////////////////////////////////////////////////
 
 template <typename charT>
@@ -27,7 +27,7 @@ class eStringBase
 		eStringBase<charT>* decRef();
 		void incRef();
 
-		/* Odwołania do wartości prywatnych */
+		/* OdwoĹ‚ania do wartoĹ›ci prywatnych */
 		charT* getText() const;
 		int getLength() const;
 };
@@ -39,7 +39,7 @@ class eStringPtrBase
 
 		eStringBase<charT>* pString;
 
-		/* Funkcje związane z konstrukcją */
+		/* Funkcje zwiÄ…zane z konstrukcjÄ… */
 		void create(int count);
 		void create(const charT* str);
 		void copy(const eStringPtrBase<charT>& str);
@@ -50,17 +50,17 @@ class eStringPtrBase
 
 	public:
 
-		/* Funkcje związane z konstrukcją i dekonstrukcją */
+		/* Funkcje zwiÄ…zane z konstrukcjÄ… i dekonstrukcjÄ… */
 		eStringPtrBase<charT>(int count = 0);
 		eStringPtrBase<charT>(const charT* str);
 		eStringPtrBase<charT>(const eStringPtrBase<charT>& str);
 		~eStringPtrBase();
 
-		/* Odwołania do wartości prywatnych */
+		/* OdwoĹ‚ania do wartoĹ›ci prywatnych */
 		charT* getText() const;
 		int getLength() const;
 
-		/* Różne funkcje operujące na tekstach */
+		/* RĂłĹĽne funkcje operujÄ…ce na tekstach */
 		bool compare(const charT* str, int pos = 0, int count = 0, bool case_sensitive = false) const;
 		bool compare(const eStringPtrBase<charT>& str, int pos = 0, int count = 0, bool case_sensitive = false) const;
 		bool hasExtension(const charT* str) const;
@@ -78,7 +78,7 @@ class eStringPtrBase
 
 
 ////////////////////////////////////////////////////////////////
-// Definicje używanych typów tekstu
+// Definicje uĹĽywanych typĂłw tekstu
 ////////////////////////////////////////////////////////////////
 
 typedef eStringPtrBase<char> eString;

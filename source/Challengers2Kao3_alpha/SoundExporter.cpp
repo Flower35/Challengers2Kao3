@@ -3,7 +3,7 @@
 
 
 ////////////////////////////////////////////////////////////////
-// Konstruktor klasy eksportera dŸwiêków
+// Konstruktor klasy eksportera dÅºwiÄ™kÃ³w
 ////////////////////////////////////////////////////////////////
 CSoundExporter::CSoundExporter(int rozpoznany_typ, HANDLE archiwum, eUnicodeString &full_path, eUnicodeString &simple_name, int32_t offset)
 : CFileOperator(archiwum, false, INVALID_HANDLE_VALUE, true)
@@ -16,7 +16,7 @@ CSoundExporter::CSoundExporter(int rozpoznany_typ, HANDLE archiwum, eUnicodeStri
 
 
 ////////////////////////////////////////////////////////////////
-// Dekonstruktor klasy eksportera dŸwiêków
+// Dekonstruktor klasy eksportera dÅºwiÄ™kÃ³w
 ////////////////////////////////////////////////////////////////
 CSoundExporter::~CSoundExporter()
 {
@@ -33,7 +33,7 @@ CSoundExporter::~CSoundExporter()
 
 
 ////////////////////////////////////////////////////////////////
-// Przygotuj siê do eksportowania bitmapy
+// Przygotuj siÄ™ do eksportowania bitmapy
 ////////////////////////////////////////////////////////////////
 void CSoundExporter::skanujPlik()
 {
@@ -52,7 +52,7 @@ void CSoundExporter::skanujPlik()
 
 
 ////////////////////////////////////////////////////////////////
-// Odczytywanie wszystkich danych z dŸwiêku
+// Odczytywanie wszystkich danych z dÅºwiÄ™ku
 ////////////////////////////////////////////////////////////////
 int CSoundExporter::odczytajAudio()
 {
@@ -81,7 +81,7 @@ int CSoundExporter::odczytajAudio()
 
 
 ////////////////////////////////////////////////////////////////
-// Poka¿ postêp w odczytywaniu sampli lub dekodowaniu ramek
+// PokaÅ¼ postÄ™p w odczytywaniu sampli lub dekodowaniu ramek
 ////////////////////////////////////////////////////////////////
 void CSoundExporter::showProgress(int32_t activity, float fraction)
 {
@@ -122,14 +122,14 @@ void CSoundExporter::showProgress(int32_t activity, float fraction)
 ////////////////////////////////////////////////////////////////
 void CSoundExporter::eksportujAudio()
 {
-	/* Tworzenie podkatalogów */
+	/* Tworzenie podkatalogÃ³w */
 	wchar_t* sciezka_text = Sciezka.getText();
 	if (!tworzPodkatalogi(sciezka_text))
 	{
 		return;
 	}
 
-	/* Spróbuj utworzyæ plik docelowy */
+	/* SprÃ³buj utworzyÄ‡ plik docelowy */
 	if (!otworzPlikDoZapisu(sciezka_text))
 	{
 		return;
@@ -137,7 +137,7 @@ void CSoundExporter::eksportujAudio()
 
 	switch (Rodzaj)
 	{
-		/* Zwyk³y WAVEFORM PCM */
+		/* ZwykÅ‚y WAVEFORM PCM */
 		case SOUND_RODZAJ_VAG:
 		case SOUND_RODZAJ_AT3_MONO:
 		{

@@ -1,20 +1,20 @@
 #include <Challengers2Kao3_alpha/SoundExporter.h>
 #include <Challengers2Kao3_alpha/WinApi.h>
 
-/* Jakiú randomizer */
+/* Jaki≈õ randomizer */
 #include <ctime>
 
-/* Maksymalna iloúÊ øπdanych floatÛw w buforze sampli */
+/* Maksymalna ilo≈õƒá ≈ºƒÖdanych float√≥w w buforze sampli */
 #define GRANICA_FLOAT_BUF 512
 
 
 ////////////////////////////////////////////////////////////////
-// Zakoduj i zapisz dane z uøyciem biblioteki "libvorbis_static"
+// Zakoduj i zapisz dane z u≈ºyciem biblioteki "libvorbis_static"
 // "Ogg Vorbis: Encode"
 ////////////////////////////////////////////////////////////////
 int CSoundExporter::encodeWithVorbis()
 {
-	/* Akceptujemy tylko 16-bitowe prÛbki */
+	/* Akceptujemy tylko 16-bitowe pr√≥bki */
 	if (sizeof(int16_t) != (Wav.Format.wBitsPerSample / 0x08))
 	{
 		throw EKomunikat(L"Only 16-bit samples are allowed in Vorbis encoding function!");
@@ -44,7 +44,7 @@ int CSoundExporter::encodeWithVorbis()
 	/* local working space for packet->PCM decode */
 	vorbis_block vb;
 
-	/* Pozosta≥e wartoúci */
+	/* Pozosta≈Çe warto≈õci */
 	int32_t eos = 0;
 	const int32_t basic_sample_size = sizeof(int16_t);
 	const int32_t data_sample_size = (Wav.Format.wChannels * basic_sample_size);
@@ -105,8 +105,8 @@ int CSoundExporter::encodeWithVorbis()
 
 	while (0 == eos)
 	{
-		/* Wysy≥aj bloki po jakieú 512 FloatÛw, bo by≥y problemy ze stosem */
-		/* Kaøda prÛbka Stereo ma po 2 kana≥y. Razem dostajemy 4096 bajtÛw. */
+		/* Wysy≈Çaj bloki po jakie≈õ 512 Float√≥w, bo by≈Çy problemy ze stosem */
+		/* Ka≈ºda pr√≥bka Stereo ma po 2 kana≈Çy. Razem dostajemy 4096 bajt√≥w. */
 		samples_left = (all_data_samples > GRANICA_FLOAT_BUF) ? GRANICA_FLOAT_BUF : all_data_samples;
 
 		if (samples_left > 0)

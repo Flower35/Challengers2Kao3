@@ -23,7 +23,7 @@
 // Eksportowana klasa
 ////////////////////////////////////////////////////////////////
 
-/* Symbol zewnętrzny */
+/* Symbol zewnÄ™trzny */
 MaiAT3PlusFrameDecoder* LibAtrac3plus::Dekoder = nullptr;
 
 /* Konstruktor */
@@ -70,7 +70,7 @@ int32_t LibAtrac3plus::dekodujRamke(uint8_t** output, uint8_t** input, const int
 		return 1;
 	}
 
-	/* (1 z 2) Czy liczba kanałów się zgadza? */
+	/* (1 z 2) Czy liczba kanaĹ‚Ăłw siÄ™ zgadza? */
 	switch (przewidywane_kanaly)
 	{
 		case 0x01: /* MONO */
@@ -99,13 +99,13 @@ int32_t LibAtrac3plus::dekodujRamke(uint8_t** output, uint8_t** input, const int
 		}
 	}
 
-	/* Dekoduj jedną ramkę */
+	/* Dekoduj jednÄ… ramkÄ™ */
 	if (0 != Dekoder->decodeFrame((char*)(*input), rozmiar_bloku, &zwrotna_liczba_kanalow, &zwrotny_bufor))
 	{
 		return 1;
 	}
 
-	/* (2 z 2) Czy liczba kanałów się zgadza? */
+	/* (2 z 2) Czy liczba kanaĹ‚Ăłw siÄ™ zgadza? */
 	if (zwrotna_liczba_kanalow != przewidywane_kanaly)
 	{
 		return 1;
@@ -115,7 +115,7 @@ int32_t LibAtrac3plus::dekodujRamke(uint8_t** output, uint8_t** input, const int
 	przeskok = (przewidywane_kanaly * sizeof(int16_t) * 0x0800);
 	std::memcpy((*output), zwrotny_bufor, przeskok);
 
-	/* Na koniec zaaktualizuj wkaźniki */
+	/* Na koniec zaaktualizuj wkaĹşniki */
 	(*output) += przeskok;
 	(*input) += rozmiar_bloku;
 

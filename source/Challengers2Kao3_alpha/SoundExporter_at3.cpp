@@ -14,14 +14,14 @@ int CSoundExporter::readAt3Format()
 	byte* input_wskaznik;
 	byte* output_wskaznik;
 
-	/* Sprawdümy coú... */
+	/* Sprawd≈∫my co≈õ... */
 	if (0 != LibAtrac3plus::przygotujBiblioteke())
 	{
 		throw EKomunikat(L"\"ATRAC3+ decoding library\" has not been initialized correctly (?!)");
 		return 1;
 	}
 
-	/* Odczytaj dziwnπ liczbÍ i pomiÒ dziwne bajty */
+	/* Odczytaj dziwnƒÖ liczbƒô i pomi≈Ñ dziwne bajty */
 	if (SOUND_RODZAJ_AT3_MONO == Rodzaj)
 	{
 		czytajPlik(&block_size, 0x04);
@@ -34,12 +34,12 @@ int CSoundExporter::readAt3Format()
 		return 1;
 	}
 
-	/* Sprawdü ustawienia formatu */
+	/* Sprawd≈∫ ustawienia formatu */
 	switch (Wav.Format.wFormatTag)
 	{
 		case WAVE_FORMAT_PCM:
 		{
-			/* Nie musimy dokonwaÊ dekompresji :) */
+			/* Nie musimy dokonwaƒá dekompresji :) */
 			return 0;
 		}
 		case WAVE_FORMAT_EXTENSIBLE:
@@ -48,12 +48,12 @@ int CSoundExporter::readAt3Format()
 		}
 		default:
 		{
-			/* Niemoøliwe, ale whatever... */
+			/* Niemo≈ºliwe, ale whatever... */
 			return 1;
 		}
 	}
 
-	/* Sprawdü liczbÍ kana≥Ûw */
+	/* Sprawd≈∫ liczbƒô kana≈Ç√≥w */
 	switch (Wav.Format.wChannels)
 	{
 		case 0x01: /* MONO */
@@ -68,14 +68,14 @@ int CSoundExporter::readAt3Format()
 		}
 	}
 
-	/* Sprawdü czÍstotliwoúÊ prÛbkowania */
+	/* Sprawd≈∫ czƒôstotliwo≈õƒá pr√≥bkowania */
 	if (0xAC44 != Wav.Format.dwSamplesPerSec)
 	{
 		throw EKomunikat(L"Incorrect <SampleRate>. Expected 44100 Hz.");
 		return 1;
 	}
 
-	/* Sprawdü rozmiar bloku ramki */
+	/* Sprawd≈∫ rozmiar bloku ramki */
 	block_size = ((Wav.Format.ExtraBytes[2] << 8) & 0xFF00) | (Wav.Format.ExtraBytes[3] & 0xFF);
 	block_size = (((block_size & 0x03FF) * 8) + 0x08);
 	if (block_size != Wav.Format.wBlockAlign)
@@ -84,12 +84,12 @@ int CSoundExporter::readAt3Format()
 		return 1;
 	}
 
-	/* Przenieú stare dane */
+	/* Przenie≈õ stare dane */
 	Wav.Data.SecondaryBufor = Wav.Data.Samples;
 	Wav.Data.Samples = nullptr;
 	source_size = Wav.Data.chunkSize;
 
-	/* Przygotuj siÍ to dekodowania */
+	/* Przygotuj siƒô to dekodowania */
 	frames = (source_size / block_size);
 	Wav.Data.chunkSize = (Wav.Format.wChannels * sizeof(int16_t) * 0x0800 * frames);
 	try
@@ -106,8 +106,8 @@ int CSoundExporter::readAt3Format()
 
 	/* Dekoduj ramki "ATRAC3+" */
 
-	/* (--dsp--) pierwsza ramka powinna byÊ pominiÍta??? */
-	/* zauwaøy≥em, øe jest ona raczej pusta (same 0x0000) */
+	/* (--dsp--) pierwsza ramka powinna byƒá pominiƒôta??? */
+	/* zauwa≈ºy≈Çem, ≈ºe jest ona raczej pusta (same 0x0000) */
 
 	showProgress(0x01, (-1));
 	for (int i = 0; i < frames; i++)

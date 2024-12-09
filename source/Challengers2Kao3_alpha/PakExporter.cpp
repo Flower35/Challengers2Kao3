@@ -32,7 +32,7 @@ CPakExporter::~CPakExporter()
 
 
 ////////////////////////////////////////////////////////////////
-// Zmieñ wzorcow¹ nazwê pliku
+// ZmieÅ„ wzorcowÄ… nazwÄ™ pliku
 ////////////////////////////////////////////////////////////////
 bool CPakExporter::czyItemPasujeDoWzorca(eUnicodeString &item_name, const wchar_t* ext, const wchar_t* old_prefix, const wchar_t* new_prefix)
 {
@@ -74,7 +74,7 @@ bool CPakExporter::sprawdzStreamSize(int x)
 
 
 ////////////////////////////////////////////////////////////////
-// Generuje pocz¹tek komunikatu o b³êdzie
+// Generuje poczÄ…tek komunikatu o bÅ‚Ä™dzie
 ////////////////////////////////////////////////////////////////
 eUnicodeString CPakExporter::getErrorMessageHeader()
 {
@@ -83,7 +83,7 @@ eUnicodeString CPakExporter::getErrorMessageHeader()
 
 
 ////////////////////////////////////////////////////////////////
-// [OBIEKT_PAK] Sprawdzanie nag³ówków podczas exportu
+// [OBIEKT_PAK] Sprawdzanie nagÅ‚Ã³wkÃ³w podczas exportu
 ////////////////////////////////////////////////////////////////
 int CPakExporter::odczytajNaglowki()
 {
@@ -91,7 +91,7 @@ int CPakExporter::odczytajNaglowki()
 	int32_t pak_size;
 	char test[48];
 
-	/*** Spróbuj otworzyæ plik wejœciowy ***/
+	/*** SprÃ³buj otworzyÄ‡ plik wejÅ›ciowy ***/
 	if (!otworzPlikDoOdczytu(SciezkaPlikuPak.getText()))
 	{
 		return 1;
@@ -99,7 +99,7 @@ int CPakExporter::odczytajNaglowki()
 
 	pak_size = GetFileSize(Plik1, 0);
 
-	/*** SprawdŸ nag³ówek "TATE" ***/
+	/*** SprawdÅº nagÅ‚Ã³wek "TATE" ***/
 	czytajPlik(&x, 0x04);
 	if ((*(int32_t*)"TATE") != x)
 	{
@@ -130,7 +130,7 @@ int CPakExporter::odczytajNaglowki()
 			0x01).pokazKomunikat(getErrorMessageHeader());
 	}
 
-	/*** Odczytaj jêzyki ***/
+	/*** Odczytaj jÄ™zyki ***/
 	for (int i = 0; i < Langs; i++)
 	{
 		czytajPlik(LangNazwy[i], 0x04);
@@ -142,7 +142,7 @@ int CPakExporter::odczytajNaglowki()
 		Rozmiary[1 + i] = 0;
 	}
 
-	/*** SprawdŸ stream size ***/
+	/*** SprawdÅº stream size ***/
 	if (sprawdzStreamSize(pak_size))
 	{
 		throw EKomunikat(L"Incorrect PAK file size.");
@@ -169,8 +169,8 @@ int CPakExporter::eksportujItem(int rozmiar, eUnicodeString &nazwa)
 		Alokacja = nullptr;
 	}
 
-	/* ZAWSZE: Odczytywanie mog³o skoñczyæ siê na wczeœniejszym offsecie */
-	/* (plik ju¿ istnieje; ostatnie 4 bajty eBitmap; œmieciowe dane VAGp) */
+	/* ZAWSZE: Odczytywanie mogÅ‚o skoÅ„czyÄ‡ siÄ™ na wczeÅ›niejszym offsecie */
+	/* (plik juÅ¼ istnieje; ostatnie 4 bajty eBitmap; Å›mieciowe dane VAGp) */
 	current_offset = przesunPlik(0);
 	if (current_offset < end_offset)
 	{
@@ -187,7 +187,7 @@ int CPakExporter::eksportujItem(int rozmiar, eUnicodeString &nazwa)
 
 
 ////////////////////////////////////////////////////////////////
-// Eksportowanie itemów z sektora
+// Eksportowanie itemÃ³w z sektora
 ////////////////////////////////////////////////////////////////
 int CPakExporter::skanujBlokItems(int rozmiar, int &id)
 {
@@ -219,7 +219,7 @@ int CPakExporter::skanujBlokItems(int rozmiar, int &id)
 				throw EKomunikat(test1);
 				return 1;
 			}
-			/* Je¿eli istniej¹ jêzyki, to sektor TATE koñczy siê na wczeœniejszym ID! */
+			/* JeÅ¼eli istniejÄ… jÄ™zyki, to sektor TATE koÅ„czy siÄ™ na wczeÅ›niejszym ID! */
 			else return 0;
 		}
 		else
@@ -228,11 +228,11 @@ int CPakExporter::skanujBlokItems(int rozmiar, int &id)
 			czytajPlik(&item_size, 4);
 			czytajPlik(&x, 4);
 			
-			/* Odczytaj nazwê pliku */
+			/* Odczytaj nazwÄ™ pliku */
 			przesunPlik(4);
 			czytajPlik(item_name, 0x70);
 			item_name[0x70 -1] = 0x00;
-			/* Usuñ spacje na koñcu nazwy (np. "spoon.def ") */
+			/* UsuÅ„ spacje na koÅ„cu nazwy (np. "spoon.def ") */
 			for (y = (0x70 - 1); y >= 0; y--)
 			{
 				if (0x20 == item_name[y])
@@ -262,7 +262,7 @@ int CPakExporter::skanujBlokItems(int rozmiar, int &id)
 				return 1;
 			}
 
-			/* Przesuñ licznik identyfikatorów */
+			/* PrzesuÅ„ licznik identyfikatorÃ³w */
 			id++;
 		}
 	}
@@ -271,7 +271,7 @@ int CPakExporter::skanujBlokItems(int rozmiar, int &id)
 
 
 ////////////////////////////////////////////////////////////////
-// Wypakuj ca³e archiwum
+// Wypakuj caÅ‚e archiwum
 ////////////////////////////////////////////////////////////////
 int CPakExporter::beginExtracting()
 {
@@ -281,13 +281,13 @@ int CPakExporter::beginExtracting()
 
 	try
 	{
-		/*** Przygotuj i sprawdŸ archiwum przed eksportem ***/
+		/*** Przygotuj i sprawdÅº archiwum przed eksportem ***/
 		if (0 != odczytajNaglowki())
 		{
 			return 1;
 		}
 
-		/*** Rozpocznij wypakowywanie plików z g³ównego sektora ***/
+		/*** Rozpocznij wypakowywanie plikÃ³w z gÅ‚Ã³wnego sektora ***/
 		SetFilePointer(Plik1, 0x80, 0, FILE_BEGIN);
 		max_block_size = Rozmiary[0];
 		if (0 != skanujBlokItems(max_block_size, (last_item_id = 0)))
@@ -295,7 +295,7 @@ int CPakExporter::beginExtracting()
 			return 1;
 		}
 
-		/*** Kontynuuj wypakowywanie z sektorów jêzykowych ***/
+		/*** Kontynuuj wypakowywanie z sektorÃ³w jÄ™zykowych ***/
 		for (int i = 0; i < Langs; i++)
 		{
 			SetFilePointer(Plik1, max_block_size, 0, FILE_BEGIN);

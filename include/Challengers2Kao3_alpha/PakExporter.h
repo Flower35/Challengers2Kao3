@@ -4,14 +4,14 @@
 #include "Challengers2Kao3.h"
 #include "FileOperator.h"
 
-/*** Luüne definicje ***/
+/*** Lu≈∫ne definicje ***/
 #define ITEM_RODZAJ_ZWYKLY 0x00
 #define ITEM_RODZAJ_GRAFICZNY 0x01
 #define ITEM_RODZAJ_DZWIEKOWY 0x02
 
 
 ////////////////////////////////////////////////////////////////
-// Klasa eksportera plikÛw PAK
+// Klasa eksportera plik√≥w PAK
 ////////////////////////////////////////////////////////////////
 
 class CPakExporter : public CFileOperator

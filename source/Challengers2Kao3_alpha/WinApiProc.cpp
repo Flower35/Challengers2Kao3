@@ -5,18 +5,18 @@
 
 
 ////////////////////////////////////////////////////////////////
-// Sprawdü poprawnoúÊ úcieøek
+// Sprawd≈∫ poprawno≈õƒá ≈õcie≈ºek
 ////////////////////////////////////////////////////////////////
 bool CWindow::sprawdzPoprawnoscSciezek(wchar_t* nazwa_wejsciowa, wchar_t* nazwa_koncowa, eUnicodeString* katalog)
 {
-	/* Odczytaj úcieøki do dwÛch katalogÛw */
+	/* Odczytaj ≈õcie≈ºki do dw√≥ch katalog√≥w */
 	GetWindowText(EditBoxKatalogi[0], nazwa_wejsciowa, 256);
 	GetWindowText(EditBoxKatalogi[1], nazwa_koncowa, 256);
 
 	katalog[0] = nazwa_wejsciowa;
 	katalog[1] = nazwa_koncowa;
 
-	/* Czy scieøki nie sπ puste? */
+	/* Czy scie≈ºki nie sƒÖ puste? */
 	if ((katalog[0].getLength() <= 1) || (katalog[1].getLength() <= 1))
 	{
 		return false;
@@ -24,19 +24,19 @@ bool CWindow::sprawdzPoprawnoscSciezek(wchar_t* nazwa_wejsciowa, wchar_t* nazwa_
 
 	for (int j = 0; j < 2; j++)
 	{
-		/* UsuÒ cudzys≥Ûw na poczπtku */
+		/* Usu≈Ñ cudzys≈Ç√≥w na poczƒÖtku */
 		while (katalog[j].compare(L"\"", 0, 1))
 		{
 			katalog[j] = katalog[j].getSubstring(1, 0);
 		}
 
-		/* UsuÒ cudzys≥Ûw na koÒcu */
+		/* Usu≈Ñ cudzys≈Ç√≥w na ko≈Ñcu */
 		while (katalog[j].compare(L"\"", (katalog[j].getLength() - 1), 1))
 		{
 			katalog[j] = katalog[j].getSubstring(0, (katalog[j].getLength() - 1));
 		}
 
-		/* åcieøka powinna zawieraÊ slash */
+		/* ≈öcie≈ºka powinna zawieraƒá slash */
 		if (katalog[j].getLength() <= 1)
 		{
 			return false;
@@ -50,7 +50,7 @@ bool CWindow::sprawdzPoprawnoscSciezek(wchar_t* nazwa_wejsciowa, wchar_t* nazwa_
 			}
 		}
 
-		/* ZwrÛÊ do ExitBox úcieøkÍ po modyfikacjach */
+		/* Zwr√≥ƒá do ExitBox ≈õcie≈ºkƒô po modyfikacjach */
 		SetWindowText(EditBoxKatalogi[j], katalog[j].getText());
 	}
 
@@ -205,7 +205,7 @@ LRESULT CALLBACK CWindow::procedura(HWND Okno, UINT Komunikat, WPARAM wParam, LP
 
 
 ////////////////////////////////////////////////////////////////
-// WinApi: Procedura okna ≥adowania
+// WinApi: Procedura okna ≈Çadowania
 ////////////////////////////////////////////////////////////////
 LRESULT CALLBACK CWindow::procedura_druga(HWND Okno, UINT Komunikat, WPARAM wParam, LPARAM lParam)
 {
@@ -223,7 +223,7 @@ LRESULT CALLBACK CWindow::procedura_druga(HWND Okno, UINT Komunikat, WPARAM wPar
 
 
 ////////////////////////////////////////////////////////////////
-// WinApi: Procedura okna z wyborem poziomÛw
+// WinApi: Procedura okna z wyborem poziom√≥w
 ////////////////////////////////////////////////////////////////
 LRESULT CALLBACK CWindow::procedura_trzecia(HWND Okno, UINT Komunikat, WPARAM wParam, LPARAM lParam)
 {
@@ -249,20 +249,20 @@ LRESULT CALLBACK CWindow::procedura_trzecia(HWND Okno, UINT Komunikat, WPARAM wP
 				int id_start = 0;
 				int id_koniec = 0;
 
-				// Odszukaj poczπtkowy i koÒcowy identyfikator
+				// Odszukaj poczƒÖtkowy i ko≈Ñcowy identyfikator
 				for (int w = 0; w < x; w++)
 				{
 					id_start += KaoChallengersLevels[w].num;
 				}
 				id_koniec = id_start + KaoChallengersLevels[x].num;
 
-				// Sprawdü stan wszystkich checkboxÛw w danym úwiecie
+				// Sprawd≈∫ stan wszystkich checkbox√≥w w danym ≈õwiecie
 				for (int i = id_start; i < id_koniec; i++)
 				{
 					zaznaczone &= (BST_CHECKED == SendMessage(CheckBoxPoziomy[i], BM_GETCHECK, 0, 0));
 				}
 
-				// OdwrÛÊ zaznaczenia
+				// Odwr√≥ƒá zaznaczenia
 				x = zaznaczone ? BST_UNCHECKED : BST_CHECKED;
 				for (int i = id_start; i < id_koniec; i++)
 				{
@@ -279,7 +279,7 @@ LRESULT CALLBACK CWindow::procedura_trzecia(HWND Okno, UINT Komunikat, WPARAM wP
 
 
 ////////////////////////////////////////////////////////////////
-// WinApi: Procedura okna z wyborem patchÛw
+// WinApi: Procedura okna z wyborem patch√≥w
 ////////////////////////////////////////////////////////////////
 LRESULT CALLBACK CWindow::procedura_czwarta(HWND Okno, UINT Komunikat, WPARAM wParam, LPARAM lParam)
 {
@@ -304,7 +304,7 @@ LRESULT CALLBACK CWindow::procedura_czwarta(HWND Okno, UINT Komunikat, WPARAM wP
 					// Przygotuj zebrane dane
 					CPatchApplier abc(NazwaPlikuOtwieranego);
 
-					// Pokaø okno z komunikatami
+					// Poka≈º okno z komunikatami
 					zmienTekstOknaLadowania(L"");
 					EnableWindow(Okna[3], FALSE);
 					ShowWindow(Okna[1], SW_SHOW);
@@ -345,7 +345,7 @@ LRESULT CALLBACK CWindow::procedura_czwarta(HWND Okno, UINT Komunikat, WPARAM wP
 					return 1;
 				}
 
-				/* Kopiuj pliki bezpoúrednie i pliki poúrednie */
+				/* Kopiuj pliki bezpo≈õrednie i pliki po≈õrednie */
 
 				zmienTekstOknaLadowania(L"");
 				EnableWindow(Okna[3], FALSE);
@@ -354,7 +354,7 @@ LRESULT CALLBACK CWindow::procedura_czwarta(HWND Okno, UINT Komunikat, WPARAM wP
 				CFileOperator abc(INVALID_HANDLE_VALUE, false, INVALID_HANDLE_VALUE, false);
 				abc.kopiujWaznePliki(pliki_skopiowane, katalog);
 
-				/* Wyúwietl komunikat */
+				/* Wy≈õwietl komunikat */
 
 				ShowWindow(Okna[1], SW_HIDE);
 				EnableWindow(Okna[3], TRUE);

@@ -36,7 +36,7 @@ CBitmapExporter::~CBitmapExporter()
 
 
 ////////////////////////////////////////////////////////////////
-// Przygotuj siê do eksportowania bitmapy
+// Przygotuj siÄ™ do eksportowania bitmapy
 ////////////////////////////////////////////////////////////////
 bool CBitmapExporter::wykonajZadanie(int jakie)
 {
@@ -47,7 +47,7 @@ bool CBitmapExporter::wykonajZadanie(int jakie)
 	{
 		if (0 == jakie)
 		{
-			/* SprawdŸ nag³ówek archiwum */
+			/* SprawdÅº nagÅ‚Ã³wek archiwum */
 			czytajPlik(&x, 4);
 			if ((*(int32_t*)"tate") != x)
 			{
@@ -55,7 +55,7 @@ bool CBitmapExporter::wykonajZadanie(int jakie)
 				return false;
 			}
 
-			/* SprawdŸ wersjê archiwum */
+			/* SprawdÅº wersjÄ™ archiwum */
 			czytajPlik(&Wersja, 4);
 			if ((Wersja < 0x8B) || (Wersja > 0x90))
 			{
@@ -65,10 +65,10 @@ bool CBitmapExporter::wykonajZadanie(int jakie)
 				return false;
 			}
 
-			// * Pomiñ liczbê obiektów
+			// * PomiÅ„ liczbÄ™ obiektÃ³w
 			przesunPlik(0x04);
 
-			// * SprawdŸ, czy na pocz¹tku jest gad¿et "eBitmap"
+			// * SprawdÅº, czy na poczÄ…tku jest gadÅ¼et "eBitmap"
 			czytajPlik(&x, 4);
 			czytajPlik(&y, 4);
 			if ((0 != x) || (0x1001 != y))
@@ -141,7 +141,7 @@ float CBitmapExporter::getBytesPerPixel()
 
 
 ////////////////////////////////////////////////////////////////
-// Czy bitmapa wymaga alokowania pamiêci na Paletê?
+// Czy bitmapa wymaga alokowania pamiÄ™ci na PaletÄ™?
 // "kao2.00470F40"
 ////////////////////////////////////////////////////////////////
 bool CBitmapExporter::isUsingPalette()
@@ -164,7 +164,7 @@ bool CBitmapExporter::isUsingPalette()
 
 
 ////////////////////////////////////////////////////////////////
-// Zwróæ pe³n¹ nazwê rodzaju eBitmapy
+// ZwrÃ³Ä‡ peÅ‚nÄ… nazwÄ™ rodzaju eBitmapy
 ////////////////////////////////////////////////////////////////
 const wchar_t* CBitmapExporter::getRodzajAsName()
 {
@@ -259,7 +259,7 @@ bool CBitmapExporter::przygotujTeksture()
 	int32_t y;
 	bool zgodnosc = true;
 
-	/* Odczytaj Szerokoœæ i Wysokoœæ Bitmapy */
+	/* Odczytaj SzerokoÅ›Ä‡ i WysokoÅ›Ä‡ Bitmapy */
 	czytajPlik(&x, 0x04);
 	czytajPlik(&y, 0x04);
 
@@ -290,7 +290,7 @@ bool CBitmapExporter::przygotujTeksture()
 	/* Odczytaj rodzaj Bitmapy */
 	czytajPlik(&Rodzaj, 0x04);
 
-	/* SprawdŸ, czy rodzaj jest obs³ugiwany */
+	/* SprawdÅº, czy rodzaj jest obsÅ‚ugiwany */
 	switch (Rodzaj)
 	{
 		case DXT1:
@@ -324,7 +324,7 @@ bool CBitmapExporter::przygotujTeksture()
 	/* Odczytaj bajty dla obrazka */
 	czytajPlik(Piksele1, x);
 
-	/* Odwróæ kolory palety, jeœli istnieje. Odwróæ RGBA->BGRA */
+	/* OdwrÃ³Ä‡ kolory palety, jeÅ›li istnieje. OdwrÃ³Ä‡ RGBA->BGRA */
 	if (isUsingPalette())
 	{
 		czytajPlik(Paleta, 0x0400);
@@ -335,7 +335,7 @@ bool CBitmapExporter::przygotujTeksture()
 		}
 	}
 
-	/* Serializuj nazwê pliku z Bitmap¹ */
+	/* Serializuj nazwÄ™ pliku z BitmapÄ… */
 	czytajPlik(&x, 0x04);
 	if (0 == x)
 	{
@@ -359,13 +359,13 @@ bool CBitmapExporter::przygotujTeksture()
 
 
 ////////////////////////////////////////////////////////////////
-// Przygotuj koñcow¹ nazwê pliku
+// Przygotuj koÅ„cowÄ… nazwÄ™ pliku
 ////////////////////////////////////////////////////////////////
 bool CBitmapExporter::przygotujNazwe()
 {
 	int x;
 
-	/* Ustal format pliku wyjœciowego */
+	/* Ustal format pliku wyjÅ›ciowego */
 	switch (Rodzaj)
 	{
 		case RGBA8:
@@ -381,7 +381,7 @@ bool CBitmapExporter::przygotujNazwe()
 		}
 	}
 
-	/* SprawdŸ, czy rzeczywiste formaty s¹ zgodne */
+	/* SprawdÅº, czy rzeczywiste formaty sÄ… zgodne */
 	if (BitmapName.getLength() > 4)
 	{
 		int prawdziwy_format = 0;
@@ -430,7 +430,7 @@ bool CBitmapExporter::przygotujNazwe()
 		}
 	}
 
-	/* Ustal nazwê pliku wyjœciowego */
+	/* Ustal nazwÄ™ pliku wyjÅ›ciowego */
 	if (BitmapName.getLength() <= 0)
 	{
 		return false;
@@ -439,7 +439,7 @@ bool CBitmapExporter::przygotujNazwe()
 	{
 		x = (BitmapName.getLength() - 4);
 
-		/* Usuñ rozszerzenie, jeœli istnieje */
+		/* UsuÅ„ rozszerzenie, jeÅ›li istnieje */
 		if (x >= 1)
 		{
 			if ('.' == BitmapName.getText()[x])
@@ -448,7 +448,7 @@ bool CBitmapExporter::przygotujNazwe()
 			}
 		}
 
-		/* Pamiêtaj o ".." na pocz¹tku plików w Challengers! */
+		/* PamiÄ™taj o ".." na poczÄ…tku plikÃ³w w Challengers! */
 		if (BitmapName.getLength() > 3)
 		{
 			if (BitmapName.compare("../", 0, 3))
@@ -457,7 +457,7 @@ bool CBitmapExporter::przygotujNazwe()
 			}
 		}
 
-		/* Specjalne sprawdzanie, czy s¹ to pliki z "menu/interfejs3" */
+		/* Specjalne sprawdzanie, czy sÄ… to pliki z "menu/interfejs3" */
 		const char* specjalne_nazwy[][2] =
 		{
 			{"menu/interfejs3/medal", "menu/ui/medal"},
@@ -477,7 +477,7 @@ bool CBitmapExporter::przygotujNazwe()
 			}
 		}
 
-		/* Utwórz koñcow¹ œcie¿kê */
+		/* UtwÃ³rz koÅ„cowÄ… Å›cieÅ¼kÄ™ */
 		_convertString(PelnaSciezka, BitmapName);
 		PelnaSciezka = PelnaSciezka
 			+ (BmpExt ? L".bmp" : L".tga");
@@ -497,25 +497,25 @@ void CBitmapExporter::eksportujTeksture()
 	
 	wchar_t* pelna_sciezka_text = PelnaSciezka.getText();
 
-	/* Pomiñ plik, je¿eli ju¿ istnieje :) */
+	/* PomiÅ„ plik, jeÅ¼eli juÅ¼ istnieje :) */
 	if (czyPlikIstnieje(pelna_sciezka_text))
 	{
 		return;
 	}
 
-	/* Tworzenie podkatalogów */
+	/* Tworzenie podkatalogÃ³w */
 	if (!tworzPodkatalogi(pelna_sciezka_text))
 	{
 		return;
 	}
 
-	/* Spróbuj utworzyæ plik docelowy */
+	/* SprÃ³buj utworzyÄ‡ plik docelowy */
 	if (!otworzPlikDoZapisu(pelna_sciezka_text))
 	{
 		return;
 	}
 
-	/*** Przygotuj odpowiedni nag³ówek pliku ***/
+	/*** Przygotuj odpowiedni nagÅ‚Ã³wek pliku ***/
 	std::memset(header, 0x00, 0x36);
 	if (BmpExt)
 	{
@@ -542,7 +542,7 @@ void CBitmapExporter::eksportujTeksture()
 		header[0x11] = 0x08; 
 	}
 
-	/*** Przygotuj odpowiedni blok wyjœciowy (zapamiêtaj iloœæ bajtów) ***/
+	/*** Przygotuj odpowiedni blok wyjÅ›ciowy (zapamiÄ™taj iloÅ›Ä‡ bajtÃ³w) ***/
 	y = SizeX * SizeY * getBytesPerPixelNew();
 
 	try
@@ -562,11 +562,11 @@ void CBitmapExporter::eksportujTeksture()
 		{
 			for (int X=0; X<SizeX; X+=4)
 			{
-				// ODCZYT po 8 bajtów (16+16+32 bitów)
-				// WYJŒCIE na 32 bajty (32+32+32+32 bitów)
-				// X roœnie co 4, bo kolejny output jest co 4 piksele po 32 bity
-				// Y roœnie co 4, bo bloki output s¹ 4x4 piksele.
-				// stride *4 bo to s¹ Bajty scanline 
+				// ODCZYT po 8 bajtÃ³w (16+16+32 bitÃ³w)
+				// WYJÅšCIE na 32 bajty (32+32+32+32 bitÃ³w)
+				// X roÅ›nie co 4, bo kolejny output jest co 4 piksele po 32 bity
+				// Y roÅ›nie co 4, bo bloki output sÄ… 4x4 piksele.
+				// stride *4 bo to sÄ… Bajty scanline 
 				
 				DecompressBlockBC1(X, Y*2, SizeX*4, (Piksele1 + Y*SizeX + X*2), Piksele2);
 			}
@@ -599,7 +599,7 @@ void CBitmapExporter::eksportujTeksture()
 		Piksele2 = Piksele1;
 		Piksele1 = nullptr;
 	}
-	/*** [TGA, 8] 8-bitowa paleta RGBA na pe³n¹ TARGA 32-bit ***/
+	/*** [TGA, 8] 8-bitowa paleta RGBA na peÅ‚nÄ… TARGA 32-bit ***/
 	else if ((!BmpExt) && (PAL8_RGBA8 == Rodzaj))
 	/* (TGA 0x02) */
 	{
@@ -612,7 +612,7 @@ void CBitmapExporter::eksportujTeksture()
 			}
 		}
 	}
-	/*** [BMP, 8] 8-bitowa paleta na 256-kolorow¹ Bitmapê ***/
+	/*** [BMP, 8] 8-bitowa paleta na 256-kolorowÄ… BitmapÄ™ ***/
 	else if (BmpExt && (PAL8_RGBA8 == Rodzaj))
 	/* (BMP 0x02) */
 	{
@@ -663,26 +663,26 @@ void CBitmapExporter::eksportujTeksture()
 		return;
 	}
 
-	/*** Mo¿esz teraz wyczyœciæ "piksele1" ***/
+	/*** MoÅ¼esz teraz wyczyÅ›ciÄ‡ "piksele1" ***/
 	if (nullptr != Piksele1)
 	{
 		delete[](Piksele1);
 		Piksele1 = nullptr;
 	}
 
-	/*** Zapisz nag³ówek obrazka ***/
+	/*** Zapisz nagÅ‚Ã³wek obrazka ***/
 	zapiszPlik(header, BmpExt ? 0x36 : 0x12);
 
-	/*** Zapisz paletê, je¿eli jest to bitmapa 256-kolorowa ***/
+	/*** Zapisz paletÄ™, jeÅ¼eli jest to bitmapa 256-kolorowa ***/
 	if (BmpExt && isUsingPalette())
 	{
 		zapiszPlik(Paleta, 0x0400);
 	}
 
-	/*** Zapisz odpowiedni¹ ilosæ bajtów z kolorami ***/
+	/*** Zapisz odpowiedniÄ… ilosÄ‡ bajtÃ³w z kolorami ***/
 	zapiszPlik(Piksele2, y);
 
-	/*** Opcjonalnie: Zamknij plik i wyczyœæ ostatnie piksele z pamiêci ***/
+	/*** Opcjonalnie: Zamknij plik i wyczyÅ›Ä‡ ostatnie piksele z pamiÄ™ci ***/
 	CloseHandle(Plik2);
 	Plik2 = INVALID_HANDLE_VALUE;
 	if (nullptr != Piksele2)

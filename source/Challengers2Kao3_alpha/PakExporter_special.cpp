@@ -6,7 +6,7 @@
 
 
 ////////////////////////////////////////////////////////////////
-// Czy dany ITEM mo¿na pomin¹æ podczas wypakowywania?
+// Czy dany ITEM moÅ¼na pominÄ…Ä‡ podczas wypakowywania?
 ////////////////////////////////////////////////////////////////
 bool CPakExporter::isItemSkipable(eUnicodeString &nazwa)
 {
@@ -56,7 +56,7 @@ bool CPakExporter::isItemSkipable(eUnicodeString &nazwa)
 
 
 ////////////////////////////////////////////////////////////////
-// Czy za dany ITEM mo¿na podstawiæ inny plik?
+// Czy za dany ITEM moÅ¼na podstawiÄ‡ inny plik?
 ////////////////////////////////////////////////////////////////
 bool CPakExporter::isItemUpgradable(eUnicodeString &nazwa)
 {
@@ -106,7 +106,7 @@ bool CPakExporter::isItemUpgradable(eUnicodeString &nazwa)
 
 
 ////////////////////////////////////////////////////////////////
-// SprawdŸ, czy ITEM powinien mieæ zmienion¹ nazwê
+// SprawdÅº, czy ITEM powinien mieÄ‡ zmienionÄ… nazwÄ™
 ////////////////////////////////////////////////////////////////
 void CPakExporter::opracujKoncowaNazweItema(int32_t &typ, int32_t &podtyp, eUnicodeString &nazwa)
 {
@@ -128,7 +128,7 @@ void CPakExporter::opracujKoncowaNazweItema(int32_t &typ, int32_t &podtyp, eUnic
 		}
 	}
 
-	/*** Czy jest to plik dŸwiêkowy? ***/
+	/*** Czy jest to plik dÅºwiÄ™kowy? ***/
 
 	if (CWindow::czyJestOpcjaZaawansowana(OPCJA_ZAAWANSOWANA_DECOMPRESS_SFX))
 	{
@@ -167,7 +167,7 @@ void CPakExporter::opracujKoncowaNazweItema(int32_t &typ, int32_t &podtyp, eUnic
 			}
 			if (nullptr != new_ext)
 			{
-				/* Docelowy wskaŸnik jest  automatycznie liczony jako "wchar_t*" (nie trzeba mno¿yæ przez 2) */
+				/* Docelowy wskaÅºnik jest  automatycznie liczony jako "wchar_t*" (nie trzeba mnoÅ¼yÄ‡ przez 2) */
 				std::memcpy(
 					(nazwa.getText() + nazwa.getLength() - 3),
 					new_ext, (3 * sizeof(wchar_t)));
@@ -196,7 +196,7 @@ int CPakExporter::eksportujItemSubfunkcja(int rozmiar, int offset_koncowy, eUnic
 	eUnicodeString pelna_sciezka;
 	wchar_t* pelna_sciezka_text = nullptr;
 
-	/* Czy plik mo¿na pomin¹æ, ze wzglêdu na silnik "Tajemnicy Wulkanu"? */
+	/* Czy plik moÅ¼na pominÄ…Ä‡, ze wzglÄ™du na silnik "Tajemnicy Wulkanu"? */
 	if (CWindow::czyJestOpcjaZaawansowana(OPCJA_ZAAWANSOWANA_SKIPABLES))
 	{
 		if (isItemSkipable(nazwa))
@@ -205,7 +205,7 @@ int CPakExporter::eksportujItemSubfunkcja(int rozmiar, int offset_koncowy, eUnic
 		}
 	}
 
-	/* Czy dany plik mo¿na podmieniæ poprzez kopiowanie? */
+	/* Czy dany plik moÅ¼na podmieniÄ‡ poprzez kopiowanie? */
 	if (CWindow::czyJestOpcjaZaawansowana(OPCJA_ZAAWANSOWANA_UPGRADABLES))
 	{
 		if (isItemUpgradable(nazwa))
@@ -214,10 +214,10 @@ int CPakExporter::eksportujItemSubfunkcja(int rozmiar, int offset_koncowy, eUnic
 		}
 	}
 
-	/* Czy plik musi mieæ zmienion¹ nazwê? */
+	/* Czy plik musi mieÄ‡ zmienionÄ… nazwÄ™? */
 	opracujKoncowaNazweItema(typ_pliku, podtyp_pliku, nazwa);
 
-	/* Czy dany rodzaj itemu bêdzie wymaga³ utworzenia pe³nej œcie¿ki? */
+	/* Czy dany rodzaj itemu bÄ™dzie wymagaÅ‚ utworzenia peÅ‚nej Å›cieÅ¼ki? */
 	switch (typ_pliku)
 	{
 		case ITEM_RODZAJ_GRAFICZNY:
@@ -229,10 +229,10 @@ int CPakExporter::eksportujItemSubfunkcja(int rozmiar, int offset_koncowy, eUnic
 		{
 			pelna_sciezka = FolderDocelowy + nazwa;
 
-			/* Zapamiêtaj œcie¿kê wynikow¹ wypakowywanego pliku */
+			/* ZapamiÄ™taj Å›cieÅ¼kÄ™ wynikowÄ… wypakowywanego pliku */
 			pelna_sciezka_text = pelna_sciezka.getText();
 
-			/* WyjdŸ, jeœli docelowy plik ju¿ istnieje */
+			/* WyjdÅº, jeÅ›li docelowy plik juÅ¼ istnieje */
 			if (CWindow::czyJestOpcjaZaawansowana(OPCJA_ZAAWANSOWANA_DONT_OVERWRITE))
 			{
 				if (czyPlikIstnieje(pelna_sciezka_text))
@@ -255,7 +255,7 @@ int CPakExporter::eksportujItemSubfunkcja(int rozmiar, int offset_koncowy, eUnic
 
 			if (bmpEx.wykonajZadanie(0))
 			{
-				/* WyjdŸ, jeœli docelowy plik ju¿ istnieje */
+				/* WyjdÅº, jeÅ›li docelowy plik juÅ¼ istnieje */
 				if (CWindow::czyJestOpcjaZaawansowana(OPCJA_ZAAWANSOWANA_DONT_OVERWRITE))
 				{
 					if (czyPlikIstnieje(pelna_sciezka_text))
@@ -264,7 +264,7 @@ int CPakExporter::eksportujItemSubfunkcja(int rozmiar, int offset_koncowy, eUnic
 					}
 				}
 
-				/* Nazwê Bitmapy mo¿emy sprawdziæ dopiero po jej odczytaniu */
+				/* NazwÄ™ Bitmapy moÅ¼emy sprawdziÄ‡ dopiero po jej odczytaniu */
 				if (CWindow::czyJestOpcjaZaawansowana(OPCJA_ZAAWANSOWANA_UPGRADABLES))
 				{
 					if (isItemUpgradable(bmpEx.PelnaSciezka))
@@ -296,7 +296,7 @@ int CPakExporter::eksportujItemSubfunkcja(int rozmiar, int offset_koncowy, eUnic
 
 		default:
 		{
-			/* Alokowanie pamiêci */
+			/* Alokowanie pamiÄ™ci */
 			try
 			{
 				Alokacja = new byte[rozmiar];
@@ -312,7 +312,7 @@ int CPakExporter::eksportujItemSubfunkcja(int rozmiar, int offset_koncowy, eUnic
 			/* Odczyt danych z paczki */
 			czytajPlik(Alokacja, rozmiar);
 
-			/* Tworzenie podkatalogów */
+			/* Tworzenie podkatalogÃ³w */
 			if (!tworzPodkatalogi(pelna_sciezka_text))
 			{
 				return 1;
@@ -325,7 +325,7 @@ int CPakExporter::eksportujItemSubfunkcja(int rozmiar, int offset_koncowy, eUnic
 			}
 			zapiszPlik(Alokacja, rozmiar);
 
-			/* Wy³¹czenie uchwytu docelowego */
+			/* WyÅ‚Ä…czenie uchwytu docelowego */
 			CloseHandle(Plik2);
 			Plik2 = INVALID_HANDLE_VALUE;
 		}

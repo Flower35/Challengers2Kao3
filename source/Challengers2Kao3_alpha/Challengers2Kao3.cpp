@@ -3,7 +3,7 @@
 
 
 ////////////////////////////////////////////////////////////////
-// Nazwy poziomÛw z Kao Challengers
+// Nazwy poziom√≥w z Kao Challengers
 ////////////////////////////////////////////////////////////////
 
 StIniLevel::StIniLevel(const wchar_t* a, const wchar_t* b)
@@ -30,7 +30,7 @@ const StIniLevel KaoChallengersWorld2[WORLD2_NUM_LEVELS] =
 	StIniLevel(L"02_forest_of_canada", L"Bobrowy Las"),
 	StIniLevel(L"03_forest_of_canada_2", L"Ucieczka"),
 	StIniLevel(L"05_wielkie_drzewa", L"Wielkie Drzewa"),
-	StIniLevel(L"06_wodospady", L"Sp≥yw"),
+	StIniLevel(L"06_wodospady", L"Sp≈Çyw"),
 	StIniLevel(L"22_boss_szaman", L"Jaskinia Szamana")
 };
 
@@ -39,24 +39,24 @@ const StIniLevel KaoChallengersWorld3[WORLD3_NUM_LEVELS] =
 	StIniLevel(L"07_igloo_village", L"Zimowa Wioska"),
 	StIniLevel(L"08_ice_cave", L"Lodowa Jaskinia"),
 	StIniLevel(L"10_snowboard", L"Szalona Jazda"),
-	StIniLevel(L"11_kopalnie_krysztalow", L"Kopalnie kryszta≥Ûw"),
+	StIniLevel(L"11_kopalnie_krysztalow", L"Kopalnie kryszta≈Ç√≥w"),
 	StIniLevel(L"24_boss_kolejarz", L"Stacja")
 };
 
 const StIniLevel KaoChallengersWorld4[WORLD4_NUM_LEVELS] =
 {
-	StIniLevel(L"19_orka", L"Wyúcig"),
+	StIniLevel(L"19_orka", L"Wy≈õcig"),
 	StIniLevel(L"13_water", L"Niebezpieczna rafa"),
-	StIniLevel(L"16_water_ucieczka_rekiny", L"G≥Íboki ocean"),
-	StIniLevel(L"23_boss_octopus", L"Oúmiornica")
+	StIniLevel(L"16_water_ucieczka_rekiny", L"G≈Çƒôboki ocean"),
+	StIniLevel(L"23_boss_octopus", L"O≈õmiornica")
 };
 
 const StIniLevel KaoChallengersWorld5[WORLD5_NUM_LEVELS] =
 {
-	StIniLevel(L"14_kladki", L"PodrÛø na wyspÍ"),
-	StIniLevel(L"15_wyspa", L"Wyspa skarbÛw"),
+	StIniLevel(L"14_kladki", L"Podr√≥≈º na wyspƒô"),
+	StIniLevel(L"15_wyspa", L"Wyspa skarb√≥w"),
 	StIniLevel(L"17_wulkan", L"Wulkan"),
-	StIniLevel(L"20_boss_pirat", L"Piracka przystaÒ")
+	StIniLevel(L"20_boss_pirat", L"Piracka przysta≈Ñ")
 };
 
 const StIniLevel KaoChallengersWorld6[WORLD6_NUM_LEVELS] =
@@ -64,14 +64,14 @@ const StIniLevel KaoChallengersWorld6[WORLD6_NUM_LEVELS] =
 	StIniLevel(L"26_ruins", L"Lost Village"),
 	StIniLevel(L"27_the_chase", L"The Chase"),
 	StIniLevel(L"28_swamps", L"Swamps"),
-	StIniLevel(L"29_witchs_hut", L"Witchís Hut")
+	StIniLevel(L"29_witchs_hut", L"Witch‚Äôs Hut")
 };
 
 const StIniLevel KaoChallengersWorld7[WORLD7_NUM_LEVELS] =
 {
 	StIniLevel(L"12_port", L"Opuszczone miasto"),
 	StIniLevel(L"18_port2", L"Galeon Huntera"),
-	StIniLevel(L"25_hunter", L"Decydujπce starcie")
+	StIniLevel(L"25_hunter", L"DecydujƒÖce starcie")
 };
 
 const StIniLevel KaoChallengersWorld8[WORLD8_NUM_LEVELS] =
@@ -79,7 +79,7 @@ const StIniLevel KaoChallengersWorld8[WORLD8_NUM_LEVELS] =
 	StIniLevel(L"bonus_skakanka", L"Bonus: Skakanka"),
 	StIniLevel(L"bonus_drzewo", L"Bonus: Drzewa"),
 	StIniLevel(L"bonus_strzelnica", L"Bonus: Strzelanie"),
-	StIniLevel(L"bunus_bieg", L"Bonus: Wyúcig"),
+	StIniLevel(L"bunus_bieg", L"Bonus: Wy≈õcig"),
 	StIniLevel(L"bonus_baseball", L"Bonus: Mini Baseball"),
 };
 
@@ -105,7 +105,7 @@ const StIniLevel KaoChallengersWorld9[WORLD9_NUM_LEVELS] =
 const StIniWorld KaoChallengersLevels[NUM_WORLDS] =
 {
 	StIniWorld(
-		L"£adownia",
+		L"≈Åadownia",
 		WORLD1_NUM_LEVELS,
 		KaoChallengersWorld1),
 	StIniWorld(
@@ -117,7 +117,7 @@ const StIniWorld KaoChallengersLevels[NUM_WORLDS] =
 		WORLD3_NUM_LEVELS,
 		KaoChallengersWorld3),
 	StIniWorld(
-		L"åwiat Wodny",
+		L"≈öwiat Wodny",
 		WORLD4_NUM_LEVELS,
 		KaoChallengersWorld4),
 	StIniWorld(
@@ -125,7 +125,7 @@ const StIniWorld KaoChallengersLevels[NUM_WORLDS] =
 		WORLD5_NUM_LEVELS,
 		KaoChallengersWorld5),
 	StIniWorld(
-		L"Wiedüma",
+		L"Wied≈∫ma",
 		WORLD6_NUM_LEVELS,
 		KaoChallengersWorld6),
 	StIniWorld(
@@ -144,7 +144,7 @@ const StIniWorld KaoChallengersLevels[NUM_WORLDS] =
 
 
 ////////////////////////////////////////////////////////////////
-// THROW_ERROR_MESSAGE (Zastrzeøenie)
+// THROW_ERROR_MESSAGE (Zastrze≈ºenie)
 ////////////////////////////////////////////////////////////////
 
 EKomunikat::EKomunikat(const wchar_t *msg, int type)

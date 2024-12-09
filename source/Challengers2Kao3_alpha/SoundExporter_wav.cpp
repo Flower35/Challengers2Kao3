@@ -156,7 +156,7 @@ int SWavSamplerChunk::read(CFileOperator &file)
 	file.czytajPlik(&cSampleLoops, 0x04);
 	file.czytajPlik(&cbSamplerData, 0x04);
 
-	/* SprawdŸ jeszcze raz po odczytaniu iloœci loopów */
+	/* SprawdÅº jeszcze raz po odczytaniu iloÅ›ci loopÃ³w */
 	if (getChunkSize() != chunkSize)
 	{
 		throw EKomunikat(L"Incorrect <smpl> chunk size.");
@@ -323,7 +323,7 @@ int SWavFormatChunk::read(CFileOperator &file)
 				throw EKomunikat(L"Incorrect <cbSize> in <fmt> chunk.");
 				return 1;
 			}
-			/* SprawdŸ jeszcze raz po odczytaniu extra size */
+			/* SprawdÅº jeszcze raz po odczytaniu extra size */
 			if (getChunkSize() != chunkSize)
 			{
 				throw EKomunikat(L"Incorrect <fmt> chunk size.");
@@ -423,7 +423,7 @@ void SWavRiffChunk::setUp()
 
 	if (Sampler.cSampleLoops > 0)
 	{
-		/* Trochê g³upio, ale muszê przenieœæ dane z innej struktury :P */
+		/* TrochÄ™ gÅ‚upio, ale muszÄ™ przenieÅ›Ä‡ dane z innej struktury :P */
 		Sampler.dwSamplePeriod = int32_t(1e+9f / Format.dwSamplesPerSec);
 		Sampler.setUp();
 	}
@@ -495,7 +495,7 @@ int SWavRiffChunk::read(CFileOperator &file)
 		return 1;
 	}
 
-	/* Pêtla odczytywania chunków */
+	/* PÄ™tla odczytywania chunkÃ³w */
 	x = 0x04;
 	while (x < chunkSize)
 	{
@@ -616,14 +616,14 @@ int SWavRiffChunk::read(CFileOperator &file)
 		}
 	}
 
-	/* Sprawdzenie, czy nic siê nie zepsu³o */
+	/* Sprawdzenie, czy nic siÄ™ nie zepsuÅ‚o */
 	if (x > chunkSize)
 	{
 		throw EKomunikat(L"File pointer went beyond the scope of <RIFF> chunk size...");
 		return 1;
 	}
 
-	/* Sprawdzenie, czy odczytano wa¿ne chunki */
+	/* Sprawdzenie, czy odczytano waÅ¼ne chunki */
 	if (!fmt_chunk)
 	{
 		throw EKomunikat(L"<fmt> chunk not found!");
